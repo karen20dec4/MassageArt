@@ -1,0 +1,15 @@
+# IDE
+.idea/
+
+# backup files
+*.tgz
+*.tar
+*.gz
+
+# temp / logs
+*.log
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
