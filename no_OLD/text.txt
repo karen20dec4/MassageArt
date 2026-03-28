@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- SEO Meta Tags på Norsk -->
+    <title>Priser for Massasje | Terapeutiske & Holistiske Pakker i Oslo | MassageART</title>
+    <meta name="description" content="Se våre priser for terapeutiske og holistiske massasjeøkter i Oslo. Velg mellom standardøkter, velværepakker og par-massasje. En investering i ditt velvære.">
+    <meta name="keywords" content="massasje priser oslo, terapeutisk massasje kostnad, holistisk økt pris, tantra-inspirert massasjepakker, parmassasje pris">
+    <meta name="author" content="MassageART">
+
+    <link rel="canonical" href="https://massageart.no/no/shop.html" />
+    <link rel="alternate" hreflang="en" href="https://massageart.no/shop.html" />
+    <link rel="alternate" hreflang="no" href="https://massageart.no/no/shop.html" />
+
+    <link href="../images/favicon.png" rel="icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:800,700,600,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400italic' rel='stylesheet' type='text/css'>
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../flat-icon/flaticon.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/css3-animation.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .language-switcher{position:fixed;bottom:20px;right:20px;z-index:1000;background-color:rgba(0,0,0,0.7);border-radius:25px;display:flex;overflow:hidden;border:1px solid rgba(255,255,255,0.1)}.language-switcher a{display:flex;align-items:center;text-decoration:none;color:white;padding:8px 12px;font-family:'Open Sans',sans-serif;font-size:14px;transition:background-color .3s}.language-switcher a.active{font-weight:bold;background-color:rgba(255,255,255,0.2);cursor:default}.language-switcher a:not(.active):hover{background-color:rgba(255,255,255,0.1)}.language-switcher img{width:20px;height:20px;border-radius:50%;margin-right:8px}.language-switcher .separator{width:1px;background-color:rgba(255,255,255,0.2)}
+    </style>
+</head>
+
+<body id="shop">
+    <div class="pre-loder"><div class="loding"></div></div>
+
+    <header class="common-header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                    <a class="navbar-brand" href="index.html"><img src="../images/home-1/logo.png" alt="MassageART Oslo Logo"></a>
+                </div>
+                <div id="navbar" class="pull-left collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">HJEM</a></li>
+                        <li><a href="about.html">OM OSS</a></li>
+						<li><a href="shop.html">PRISER</a></li>
+						<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">TJENESTER <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu"> 
+                                <li><a href="service.html">Massasje for Menn</a></li>
+                                <li><a href="service-woman.html">Massasje for Kvinner</a></li>
+								<li><a href="service-couple.html">Massasje for Par</a></li>
+							</ul>
+                        </li>
+						<li><a href="blog.html">BLOGG</a></li>
+						<li><a href="faq.html">FAQ</a></li>
+						<li><a href="contact.html">KONTAKT</a></li>
+                    </ul>
+                </div>
+                <div class="search-wrapper pull-right">
+                    <ul><li><button class="open-menu"><i class="fa fa-bars"></i></button></li></ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="shop-title">
+        <div class="container">
+            <div class="row section-title">
+                <span class="playfair">En Investering i Ditt Velvære</span>
+                <h1>Våre Terapeutiske Økter & Priser</h1>
+            </div>
+        </div>
+    </section>
+
+    <div class="page-breadcrumb">
+        <div class="container">
+            <div class="row">
+                <div class="col col-xs-9 col-md-10">
+                    <ol class="playfair breadcrumb">
+                        <li><a href="index.html">Hjem</a></li>
+                        <li class="active">Priser</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+			
+	<div class="container">
+        <div class="row section-title">
+            <div class="col col-md-10 col-md-offset-1">
+                <p>Våre <strong>terapeutiske massasjeopplevelser</strong> er en reise inn i bevisst avspenning og holistisk velvære. Vi har designet spesielle pakker og økter som vekker kroppsbevissthet, åpner hjertet og guider deg inn i en tilstand av dyp fred. Alle våre tjenester er strengt profesjonelle og terapeutiske.</p>
+                <br>
+                <div align="center">
+                    <img src="../images/shop/rose-sales.jpg" alt="Et signatur rose-ritual massasjeopplevelse" class="img img-responsive" style="border-radius: 8px; max-width: 80%;">
+                </div>
+                <br>
+                <h2>Rose-ritualet: En Signaturopplevelse</h2>
+                <p>Unn deg vår signaturopplevelse, en luksuriøs og dypt avslappende økt designet for å berolige sansene og frigjøre hverdagens spenninger. La den fortryllende atmosfæren omslutte deg i en tilstand av ren ro.</p>
+            </div>
+        </div>
+    </div>	
+			
+	<section class="shop">
+        <h2 class="hidden">Øktpakker</h2>
+        <div class="container">
+            <div class="content row">
+                <div class="col col-xs-6 col-sm-4">
+                    <div class="thumbnail">
+                        <div>
+                            <div class="title">
+                                <h3>Dyp Energiøkt</h3>
+                                <span class="playfair">En fantastisk opplevelse designet for å forsterke kroppsbevissthet og balansere din vitale energi, som fremmer både dyp avspenning og en følelse av sentrert kontroll.
+									<br><br>
+									<h4>Priser: 1.5t / 2t -- 3200,- / 3700,- NOK</h4>
+									<br>
+									<b>Inkludert:</b> En 1.5t eller 2t økt med fokus på dypt energiarbeid og revitalisering.
+								</span>
+							</div>
+                            <img src="../images/shop/Pearl_Shiva_Lingam.jpg" alt="Steiner som representerer en dyp energiøkt for holistisk balanse" class="img img-responsive">
+                        </div>
+                    </div>
+                </div>
+                
+				<div class="col col-xs-6 col-sm-4">
+                    <div class="thumbnail">
+                        <div>
+                            <div class="title">
+                                <h3>Ultimat Velvære-Retreat</h3>
+                                <span class="playfair">Fordyp deg i en eksklusiv massasjeopplevelse der eleganse møter dyp terapeutisk verdi. Designet for å roe sinnet og berolige kroppen, tilbyr denne økten perfekt harmoni og dyp avspenning.
+								<br><br>						
+								<h4>Priser: 2t / 2.5t -- 4600,- / 5200,- NOK</h4>
+								<b>Inkludert:</b> En omfattende 2t eller 2.5t økt som kombinerer våre mest populære terapeutiske tillegg.
+								</span>
+                            </div>
+                            <img src="../images/shop/Mystic_tantric_massage.jpg" alt="Mystisk tantrisk massasjeoppsett med lys og rolig atmosfære" class="img img-responsive">
+                        </div>
+                    </div>
+                </div>
+                
+				<div class="col col-xs-6 col-sm-4">
+                    <div class="thumbnail">
+                        <div>
+                            <div class="title">
+                                <h3>Standard Priser</h3>
+                                <span class="playfair">Våre standardøkter gir en fundamental terapeutisk opplevelse.
+								<br><br>						
+								<h4>1t = 2200,- NOK<br>
+									1.5t = 2600,- NOK<br>
+									2t = 3100,- NOK<br><br></h4>
+								<b>Tilgjengelige Tillegg:</b><br>
+								Bevisst Dusjritual: 300,- NOK<br>
+								Sensuell Fotberøring: 400,- NOK<br>
+                                Utvidet Fokusarbeid: 700,- NOK<br>
+								Ekstra 30min Økning: 700,- NOK
+								</span>
+                            </div>
+                            <img src="../images/shop/Silk_tantric_touch.jpg" alt="Silkestoff som representerer en mild og standard terapeutisk massasjeøkt" class="img img-responsive">
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
+			<div class="content row" style="text-align: center; margin-top: 40px;">
+                <div style="display: inline-block;">
+                    <a href="contact.html" class="btn btn-default view-all">Bestill Din Økt Nå</a>
+                </div>
+			</div>
+        </div>
+    </section>
+
+    <div class="container" style="padding-bottom: 50px;">
+        <div class="row section-title">
+            <div class="col col-md-10 col-md-offset-1">
+                <hr style="margin-top: 50px; margin-bottom: 50px;">
+                <h2>Spesialiserte Økter</h2>
+                
+                <h4>Par-økt: En Forbindelse Uten Ord</h4>
+                <p>Gjenoppdag partneren din og nå dypere nivåer av intimitet i en felles terapeutisk opplevelse. Våre økter for par er en mulighet til å lære hvordan dyp avspenning kan øke tilknytning, lekenhet og harmoni i et forhold.<br><br>
+                <b>1.5t / 2t -- 4900,- / 5700,- NOK</b></p>
+                <br><br>
+
+                <h4>4-Hånds Massasje: En Symfoni av Berøring</h4>
+                <p>En firehåndsmassasje er en unik nytelse for sansene. Slapp av mens to terapeuter jobber i harmoni, og tilbyr synkroniserte bevegelser som vil transportere deg til en tilstand av ultimat avspenning. En opplevelse som går utover enkel kroppsbehandling.<br><br>
+                <b>1t / 1.5t -- 4400,- / 5000,- NOK</b></p>
+                <br>
+                <p style="font-size: 12px; color: #888;">*Alle våre tjenester er strengt profesjonelle og terapeutiske, gitt med den største diskresjon og dedikasjon til ditt velvære. Vennligst se våre Etiske Retningslinjer for mer informasjon.</p>
+            </div>
+        </div>
+    </div>
+
+   <footer>
+        <div class="container">
+            <div class="row">
+                <div class="victoria col col-xs-6 col-md-7">
+                    <img src="../images/logo.png" alt="MassageART Oslo bunntekstlogo" class="img img-responsive">
+                    <div style="color: #ccc; margin-top: 20px; border-top: 1px solid #555; padding-top: 15px;">
+                        <h4 style="font-family: 'Raleway', sans-serif; color: #fff; font-weight: 700;">Viktig Merknad: Vår Profesjonelle Forpliktelse</h4>
+                        <p style="font-size: 14px; line-height: 1.6;">
+                            MassageART tilbyr profesjonell, tantra-inspirert terapeutisk massasje. Alle tjenester er strengt ikke-seksuelle og fokuserer på holistisk velvære, energibalanse og emosjonell frigjøring.
+                            <a href="ethics.html" aria-label="Les mer om vår etikk" style="color:#ffffff; float:right; text-decoration:underline;">Les mer...</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="footer-about col col-xs-6 col-md-4">
+                    <h2>Om MassageART OSLO</h2>
+                    <ul>
+                        <li>Bjørvika, Oslo</li>
+                        <li>Norge</li>
+                        <li>Telefon: <a href="tel:+4793934188">(+47) 939 341 88</a></li>
+                        <li>WhatsApp: <a href="https://wa.me/4793934188" target="_blank" title="Send en melding på WhatsApp"><img src="../images/whatsapp-logo-small.png" alt="WhatsApp Ikon" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">(+47) 939 341 88</a></li>
+                        <li><a href="mailto:massageartoslo@gmail.com">massageartoslo@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="language-switcher">
+        <a href="../shop.html"><span>EN</span></a>
+        <div class="separator"></div>
+        <a href="shop.html" class="active"><img src="../images/flag_no.png" alt="Norwegian"><span>NO</span></a>
+    </div>
+
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/common-script.js"></script>
+</body>
+</html>

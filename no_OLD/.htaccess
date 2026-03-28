@@ -1,0 +1,2 @@
+# .htaccess in /no directory
+DirectoryIndex index.html

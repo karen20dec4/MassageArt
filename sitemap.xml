@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--	created with www.mysitemapgenerator.com	-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<!-- Homepage - Norwegian (default) -->
+<url>
+	<loc>https://massageart.no/</loc>
+	<lastmod>2026-01-07T14:00:25+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+
+<!-- Main Pages - Norwegian (ROOT) -->
+<url>
+	<loc>https://massageart.no/about.html</loc>
+	<lastmod>2026-01-07T14:00:25+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://massageart.no/shop.html</loc>
+	<lastmod>2026-01-07T14:00:25+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://massageart.no/service.html</loc>
+	<lastmod>2026-01-07T14:00:25+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://massageart.no/service-woman.html</loc>
+	<lastmod>2026-01-07T14:00:25+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://massageart.no/service-couple.html</loc>
+	<lastmod>2026-01-07T14:00:25+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://massageart.no/blog.html</loc>
+	<lastmod>2026-01-07T14:00:25+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://massageart.no/faq.html</loc>
+	<lastmod>2026-01-07T14:00:25+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://massageart.no/contact.html</loc>
+	<lastmod>2026-01-07T14:00:25+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://massageart.no/ethics.html</loc>
+	<lastmod>2026-01-07T14:00:25+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+
+<!-- Blog Articles - Norwegian (ROOT) -->
+<url>
+	<loc>https://massageart.no/tantric-massage-in-oslo. html</loc>
+	<lastmod>2026-01-07T14:00:28+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://massageart.no/harmoni-og-hormonbalanse-gjennom-tantrisk-massasje.html</loc>
+	<lastmod>2026-01-07T14:00:31+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+
+<!-- English Pages - /en/ directory -->
+<url>
+	<loc>https://massageart.no/en/</loc>
+	<lastmod>2026-01-07T14:00:25+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://massageart.no/en/about.html</loc>
+	<lastmod>2026-01-07T14:00:27+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://massageart.no/en/shop.html</loc>
+	<lastmod>2026-01-07T14:00:28+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://massageart.no/en/service.html</loc>
+	<lastmod>2026-01-07T14:00:28+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://massageart.no/en/service-woman.html</loc>
+	<lastmod>2026-01-07T14:00:28+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://massageart.no/en/service-couple.html</loc>
+	<lastmod>2026-01-07T14:00:28+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://massageart.no/en/blog.html</loc>
+	<lastmod>2026-01-07T14:00:28+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://massageart.no/en/faq.html</loc>
+	<lastmod>2026-01-07T14:00:29+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://massageart.no/en/contact.html</loc>
+	<lastmod>2026-01-07T14:00:29+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://massageart.no/en/ethics.html</loc>
+	<lastmod>2026-01-07T14:00:29+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+
+<!-- Blog Articles - English (/en/) -->
+<url>
+	<loc>https://massageart.no/en/tantric-massage-in-oslo.html</loc>
+	<lastmod>2026-01-07T14:00:31+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://massageart.no/en/harmony-and-hormonal-balance-through-tantra-massage.html</loc>
+	<lastmod>2026-01-07T14:00:31+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+
+</urlset>

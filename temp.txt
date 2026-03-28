@@ -1,0 +1,10 @@
+about.html
+blog.html
+contact.html
+faq.html
+googlea28ee453fc5101d2.html
+index.html
+service-couple.html
+service-woman.html
+service.html
+shop.html
