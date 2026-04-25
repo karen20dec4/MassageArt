@@ -631,11 +631,7 @@ header .search-box form button {
 }
 
 /****slider image setting****/
-#home-1 .hero .item-0 {
-	background: url(../images/home-1/slider/slider-0.webp) no-repeat 50% 50%;
-	background-size: cover;
-}
-
+/* item-0 background replaced by <img class="hero-img"> for LCP optimization */
 #home-1 .hero .item-1 {
 	background: url(../images/home-1/slider/slider-1.webp) no-repeat 50% 50%;
 	background-size: cover;
