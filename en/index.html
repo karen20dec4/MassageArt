@@ -24,9 +24,13 @@
     <meta name="twitter:title" content="Therapeutic Tantric Massage in Oslo | MassageART">
     <meta name="twitter:description" content="Professional, non-sexual, therapeutic massage in Oslo for deep relaxation and well-being. ">
     <meta name="twitter:image" content="https://massageart.no/images/home-1/twitter-image.jpg">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Raleway: 800,700,600,300' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400italic' rel='stylesheet' type='text/css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:ital@1&family=Raleway:wght@300;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Preload LCP hero image (above-the-fold first slide) -->
+    <link rel="preload" as="image" href="../images/home-1/slider/slider-0.jpg" fetchpriority="high">
+
     <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="../flat-icon/flaticon.css" rel="stylesheet">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -386,13 +390,13 @@
         <a href="../"><span>NO</span></a>
     </div>
 
-    <script src="../js/jquery-1.11.3.min.js"></script>
-    <script src="../js/jquery-ui.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/owl.carousel.min.js"></script>
-    <script src="../js/jquery.appear.js"></script>
-    <script src="../js/jquery.animateNumber.min.js"></script>
-    <script src="../js/index-script.js"></script>
+    <script src="../js/jquery-1.11.3.min.js" defer></script>
+    <script src="../js/jquery-ui.min.js" defer></script>
+    <script src="../js/bootstrap.min.js" defer></script>
+    <script src="../js/owl.carousel.min.js" defer></script>
+    <script src="../js/jquery.appear.js" defer></script>
+    <script src="../js/jquery.animateNumber.min.js" defer></script>
+    <script src="../js/index-script.js" defer></script>
     <script>
     (function(){var boxes=document.querySelectorAll('.clickable-box');if(!boxes.length)return;boxes.forEach(function(box){var href=box.getAttribute('data-href');if(!href)return;box.style.cursor='pointer';var children=box.querySelectorAll('*');children.forEach(function(c){c.style.cursor='pointer'});box.addEventListener('click',function(e){var target=e.target;while(target&&target! ==box){if(target.tagName==='A')return;target=target.parentNode}window.location.href=href});box.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '||e.key==='Spacebar'){e.preventDefault();box.click()}})})})();
     </script>
