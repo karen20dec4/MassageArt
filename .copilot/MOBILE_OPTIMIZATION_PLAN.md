@@ -1,8 +1,9 @@
 # PLAN DE OPTIMIZARE PERFORMANCE MOBILE — MassageART Oslo
 > Sursă: `.copilot/raport-seo-mobile.txt` (PageSpeed Insights, captat 2026-04-25)
 > Scor inițial: **Performance = 58 / 100 (Mobile)**
-> ✅ După Faza 1 (validat 2026-04-25): **68 / 100** (+10 pct)
-> 🔜 După Faza 2 (de validat): estimat **73-76 / 100** (+5-8 pct, economie 1.48 MB pe imagini)
+> ✅ După Faza 1: **68 / 100** (+10 pct)
+> ✅ După Faza 2: **70 / 100** (+2 pct, LCP 5.9s → 5.4s) — câștig modest pentru că JPG-urile sursă erau deja comprimate
+> 🔜 După Faza 3 (de validat): estimat **78-83 / 100** — atacă cele 5 690 ms render-blocking CSS
 > Țintă realistă: **85+ / 100** fără modificarea structurii sau a funcționalității site-ului.
 > Aplicabil pentru: site static HTML/CSS/JS (Bootstrap 3 + jQuery 1.11.3 + OWL + Animate.css)
 >
@@ -84,6 +85,7 @@ Status implementare (commit-uri `perf(faza-1)`):
 
 ### 🟡 FAZA 2 — Optimizare imagini WebP (RISC MIC) — ✅ COMPLETĂ
 *Strategie hibridă confirmată cu utilizatorul: **WebP la `q=80` doar pe imaginile JPG > 80 KB.***
+*Rezultat real: 68 → 70 (+2 pct). LCP 5.9s → 5.4s (-500 ms).*
 
 **Test preliminar pe `slider-1.jpg` (1920×1080, 172 KB JPEG):**
 
@@ -138,30 +140,56 @@ Status implementare (commit-uri `perf(faza-1)`):
 
 ---
 
-### 🟠 FAZA 3 — Critical CSS path (RISC MEDIU) — 🔜 URMĂTOARE
-*Estimare: +10-15 puncte; reduce FCP cu 2-3 secunde.*
+**Cleanup follow-up (după primul raport PageSpeed):**
+- ✅ `images/home-1/beautifull-spa.jpg` (48 KB) — convertit la WebP q=80 → 28 KB (**−42%**), referințe actualizate în `index.html` + `en/index.html`, JPG sursă șters
 
-1. **Inline critical CSS** în `<head>`:
-   - Extras manual: reset + tipografie + nav + hero + above-the-fold (≈ 8-12 KB)
-   - Plasat ca `<style>` direct în `<head>` înainte de orice `<link rel="stylesheet">`
+---
 
-2. **Async load pentru CSS non-critic** (pattern preload+swap):
-   ```html
-   <link rel="preload" href="css/animate.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-   <noscript><link rel="stylesheet" href="css/animate.css"></noscript>
-   ```
-   Aplicat pe: `animate.css`, `jquery-ui.css`, `nivo-lightbox.css`, `owl.carousel.css`, `owl.theme.css`, `css3-animation.css`
+### 🟠 FAZA 3 — Async non-critical CSS (RISC MIC-MEDIU) — ✅ COMPLETĂ
+*Atacă "Render blocking requests" PageSpeed: estimat 2 140 ms economie. Țintă scor: 78-83 / 100.*
 
-3. **Eliminare `jquery-ui.css` și `jquery-ui.min.js` din paginile care NU folosesc UI components**
-   - Verificat per pagină: `index.html`, `about.html`, `service*.html`, `shop.html`, `blog.html`, `faq.html`, `ethics.html` — probabil nu folosesc datepicker/slider UI
-   - `contact.html` — verificat dacă are nevoie
+**Analiză render-blocking (raport user 2026-04-25):**
+- 10 CSS files + 1 Google Fonts blochează render-ul → 5 690 ms cumulat
+- Cel mai mare contribuitor: `bootstrap.min.css` (1 340 ms)
 
-4. **`width` + `height` explicit pe toate `<img>` (CLS)** — mutat din Faza 1
-   - Adăugăm atribute explicite pe imaginile fără ele (logo, slider thumbnails, about, services)
+**Strategie aleasă (conservatoare dar eficientă):**
 
-5. **Font Awesome subset** (opțional, dacă e timp)
-   - Generăm un subset doar cu iconițele folosite (probabil ~10-15 din ~600+)
-   - Reducere: 26 KB → ~5 KB
+| Categorie | Fișier | Decizie | Motiv |
+|---|---|---|---|
+| **Sync** (rămân blocking) | `bootstrap.min.css` | KEEP | Grid system + utilities, layout fundament above-the-fold |
+| **Sync** | `style.css` | KEEP | Site styles: header, nav, hero, slider — toate above-the-fold |
+| **Sync** | `responsive.css` | KEEP | Media queries — **CRITIC pentru mobile**, suntem mobile-first |
+| **Async** (preload+swap) | `font-awesome.min.css` | ASYNC | Iconițe cu `font-display:swap` — paint OK fără |
+| **Async** | `flat-icon/flaticon.css` | ASYNC | Same |
+| **Async** | `owl.carousel.css` | ASYNC | Carousel inițializat de JS după DOMContentLoaded |
+| **Async** | `owl.theme.css` | ASYNC | Same |
+| **Async** | `jquery-ui.css` | ASYNC | Doar widget interactiv (datepicker), nu above-the-fold |
+| **Async** | `animate.css` | ASYNC | Animații scroll-triggered prin `jquery.appear` |
+| **Async** | `css3-animation.css` | ASYNC | Animații, nu sunt above-the-fold |
+
+**Pattern aplicat (preload + onload swap + noscript fallback):**
+```html
+<link rel="preload" href="css/animate.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="css/animate.css"></noscript>
+```
+
+**Implementare (commit `perf(faza-3)`):**
+
+1. ✅ **Inventar pattern-uri CSS** — 8 pattern-uri distincte în 26 pagini (grupate după ce CSS-uri folosesc); script Python automat detectează și transformă fiecare formă
+2. ✅ **Conversie 7 link-uri sync → async** în toate cele 26 pagini: **150 transformări totale**
+3. ✅ **3 din 10 CSS rămân render-blocking** (de la 10) — reducere 70% requests blocking
+4. ✅ **`<noscript>` fallback** garantează funcționarea pe browserele cu JS dezactivat
+5. ✅ **Smoke test:** 18 pagini reprezentative testate → toate 200 OK
+
+**De ce NU am inlinat critical CSS:**
+- Cele 3 CSS care rămân sync (`bootstrap` + `style` + `responsive`) conțin deja TOATE stilurile above-the-fold
+- Inline-area lor parțială ar fi duplicare cu risc de inconsistență
+- Critical CSS extraction proper necesită tooling (Critical, Penthouse) — out of scope pentru iterație manuală
+- Câștigul așteptat din async-ul actual (7 din 10 CSS) e ~80% din câștigul total potențial
+
+**Risc rezidual:**
+- Posibil FOUC scurt pe owl carousel buttons (nav/dots) între DOMContentLoaded și încărcarea owl.theme.css — **acceptabil**, fundalul slider-ului e setat în `style.css` care e sync
+- Posibil flash scurt al icon-urilor FontAwesome/Flaticon — **mitigat** de `font-display:swap` din Faza 1
 
 ---
 
@@ -177,7 +205,11 @@ Status implementare (commit-uri `perf(faza-1)`):
    - `nivo-lightbox.min.js` — folosit doar dacă există galerie lightbox
    - `owl.carousel.min.js` — folosit doar pe paginile cu carousel (homepage, blog)
 
-3. **Mutare scripturi la finalul `<body>`** (dacă încă nu sunt acolo)
+3. **`width` + `height` explicit pe `<img>` (CLS)** — încă neaplicat sistematic
+
+4. **Inline critical CSS extras cu Critical/Penthouse** (opțional, dacă scor < 85 după Faza 3)
+   - Ar permite ASYNC inclusiv pentru `bootstrap` + `style` + `responsive`
+   - Necesită build pipeline minimal (Node.js) — utilizatorul a refuzat build pipeline; poate fi rulat o singură dată local, fișierele rezultate commit-ate manual
 
 ---
 
@@ -190,14 +222,15 @@ Status implementare (commit-uri `perf(faza-1)`):
 
 ## 4. METRICI ȚINTĂ & PROGRES REAL
 
-| Metrică | Inițial | După Faza 1 (validat) | După Faza 2 (estimat) | Țintă |
-|---|---|---|---|---|
-| **Performance Score** | 58 | **68** ✅ | 73-76 | **85+** |
-| **LCP** | > 4 s | îmbunătățit | îmbunătățit (-25 KB pe LCP) | < 2.5 s |
-| **FCP** | > 2 s | îmbunătățit | la fel ca Faza 1 | < 1.8 s |
-| **TBT** | mare | redus prin `defer` | la fel | < 200 ms |
-| **Total transfer (homepage)** | ~1 530 KiB | ~1 430 KiB | **~270 KiB** (−1 160 KiB doar imagini) | < 800 KiB |
-| **Render-blocking duration** | 4 380 ms | redus | redus | < 500 ms |
+| Metrică | Inițial | Faza 1 (validat) | Faza 2 (validat) | Faza 3 (estimat) | Țintă |
+|---|---|---|---|---|---|
+| **Performance Score** | 58 | **68** ✅ | **70** ✅ | 78-83 | **85+** |
+| **LCP** | 5.9 s | îmbunătățit | **5.4 s** ✅ | < 4 s | < 2.5 s |
+| **FCP** | > 2 s | îmbunătățit | la fel | îmbunătățit semnificativ | < 1.8 s |
+| **TBT** | mare | redus prin `defer` | la fel | la fel | < 200 ms |
+| **Total transfer (homepage)** | ~1 530 KiB | ~1 430 KiB | **~290 KiB** (−1.7 MB imagini) | la fel | < 800 KiB |
+| **Render-blocking duration** | 4 380 ms | redus parțial | la fel | **~1 700 ms** (-2 140 ms) | < 500 ms |
+| **CSS render-blocking files** | 10 | 10 | 10 | **3** ✅ | 1-2 |
 
 ---
 
@@ -227,14 +260,15 @@ Status implementare (commit-uri `perf(faza-1)`):
 | 4 | `perf: defer non-critical JS scripts` (homepage NO) | ✅ |
 | 5 | `perf: preload LCP hero image` (homepage NO) | ✅ |
 | 6 | `perf(faza-1): replicate Google Fonts combine + defer JS across all NO + EN pages` | ✅ |
-| 7 | **`perf(faza-2): convert 12 large JPG images to WebP @ q=80, update HTML+CSS refs`** | ✅ **CURENT** |
-| 8 | `perf(faza-3): async-load non-critical CSS (animate, jquery-ui, owl, nivo)` | 🔜 |
-| 9 | `perf(faza-3): inline critical above-the-fold CSS` | 🔜 |
-| 10 | `perf(faza-3): add explicit width/height on img tags for CLS` | 🔜 |
+| 7 | `perf(faza-2): convert 12 large JPG images to WebP @ q=80, update HTML+CSS refs` | ✅ |
+| 8 | **`perf(faza-3): async-load 7 non-critical CSS + convert beautifull-spa.jpg`** | ✅ **CURENT** |
+| 9 | `perf(faza-4): lazy-load Google Maps iframe + img width/height for CLS` | 🔜 |
+| 10 | `perf(faza-4): inline critical CSS via Penthouse` | 🔜 (opțional, dacă scor < 85) |
 
 **Validare PageSpeed după fiecare commit major:**
-- După #6: **58 → 68** (+10) — confirmat de utilizator 2026-04-25
-- După #7: TBD — utilizatorul va testa și raporta
-- După #8-9: TBD
+- După #6 (Faza 1): **58 → 68** (+10) — confirmat de utilizator 2026-04-25
+- După #7 (Faza 2 imagini): **68 → 70** (+2, LCP 5.9s → 5.4s) — confirmat de utilizator 2026-04-25
+- După #8 (Faza 3 async CSS): TBD — utilizatorul va testa și raporta
+- După #9-10: TBD
 
 Fiecare commit este reversibil independent dacă apare o regresie.
