@@ -19,3 +19,112 @@ RewriteRule ^index\.html$ / [R=301,L]
 RewriteCond %{THE_REQUEST} /no/index\.html
 RewriteRule ^no/index\.html$ /no/ [R=301,L]
 
+
+# =============================================================
+# 5) PERFORMANCE — Compression (GZIP / Brotli)
+# =============================================================
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/ld+json
+    AddOutputFilterByType DEFLATE application/x-font-ttf
+    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+    AddOutputFilterByType DEFLATE font/opentype
+    AddOutputFilterByType DEFLATE font/ttf
+    AddOutputFilterByType DEFLATE font/eot
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE image/x-icon
+</IfModule>
+
+# Brotli (if available on server)
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript
+    AddOutputFilterByType BROTLI_COMPRESS application/javascript application/x-javascript application/json application/ld+json
+    AddOutputFilterByType BROTLI_COMPRESS application/xml application/xhtml+xml application/rss+xml
+    AddOutputFilterByType BROTLI_COMPRESS image/svg+xml font/ttf font/otf font/woff font/woff2
+</IfModule>
+
+# =============================================================
+# 6) PERFORMANCE — Browser caching (Expires + Cache-Control)
+# =============================================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault                                      "access plus 1 month"
+
+    # HTML — short cache, must revalidate (so content updates show quickly)
+    ExpiresByType text/html                             "access plus 1 hour"
+
+    # Data files
+    ExpiresByType application/json                      "access plus 0 seconds"
+    ExpiresByType application/ld+json                   "access plus 0 seconds"
+    ExpiresByType application/xml                       "access plus 0 seconds"
+    ExpiresByType text/xml                              "access plus 0 seconds"
+
+    # Manifest / favicon
+    ExpiresByType image/x-icon                          "access plus 1 week"
+    ExpiresByType image/vnd.microsoft.icon              "access plus 1 week"
+
+    # CSS & JS — long cache (1 year)
+    ExpiresByType text/css                              "access plus 1 year"
+    ExpiresByType text/javascript                       "access plus 1 year"
+    ExpiresByType application/javascript                "access plus 1 year"
+    ExpiresByType application/x-javascript              "access plus 1 year"
+
+    # Images — long cache (1 year)
+    ExpiresByType image/jpeg                            "access plus 1 year"
+    ExpiresByType image/png                             "access plus 1 year"
+    ExpiresByType image/gif                             "access plus 1 year"
+    ExpiresByType image/webp                            "access plus 1 year"
+    ExpiresByType image/avif                            "access plus 1 year"
+    ExpiresByType image/svg+xml                         "access plus 1 year"
+
+    # Fonts — long cache (1 year)
+    ExpiresByType font/ttf                              "access plus 1 year"
+    ExpiresByType font/otf                              "access plus 1 year"
+    ExpiresByType font/woff                             "access plus 1 year"
+    ExpiresByType font/woff2                            "access plus 1 year"
+    ExpiresByType application/font-woff                 "access plus 1 year"
+    ExpiresByType application/font-woff2                "access plus 1 year"
+    ExpiresByType application/vnd.ms-fontobject         "access plus 1 year"
+    ExpiresByType application/x-font-ttf                "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+    # Long cache (immutable) for static assets
+    <FilesMatch "\.(css|js|jpg|jpeg|png|gif|webp|avif|svg|ico|woff|woff2|ttf|otf|eot)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # Short cache for HTML — content can change
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "public, max-age=3600, must-revalidate"
+    </FilesMatch>
+
+    # Security headers (lightweight, non-breaking)
+    Header set X-Content-Type-Options "nosniff"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Keep-Alive for connection reuse
+    Header set Connection "keep-alive"
+</IfModule>
+
+# =============================================================
+# 7) PERFORMANCE — MIME types for modern image formats
+# =============================================================
+<IfModule mod_mime.c>
+    AddType image/webp .webp
+    AddType image/avif .avif
+    AddType font/woff2 .woff2
+    AddType font/woff  .woff
+</IfModule>
+
+

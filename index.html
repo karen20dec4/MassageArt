@@ -33,9 +33,13 @@
     <meta name="twitter:image" content="https://massageart.no/images/home-1/twitter-image.jpg">
 
     <!-- Fonts and CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:800,700,600,300" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400italic" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:ital@1&family=Raleway:wght@300;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Preload LCP hero image (above-the-fold first slide) -->
+    <link rel="preload" as="image" href="images/home-1/slider/slider-0.jpg" fetchpriority="high">
+
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="flat-icon/flaticon.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -423,13 +427,13 @@
 	
 	
 	<!-- Correct relative paths for scripts -->
-    <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.appear.js"></script>
-    <script src="js/jquery.animateNumber.min.js"></script>
-    <script src="js/index-script.js"></script>
+    <script src="js/jquery-1.11.3.min.js" defer></script>
+    <script src="js/jquery-ui.min.js" defer></script>
+    <script src="js/bootstrap.min.js" defer></script>
+    <script src="js/owl.carousel.min.js" defer></script>
+    <script src="js/jquery.appear.js" defer></script>
+    <script src="js/jquery.animateNumber.min.js" defer></script>
+    <script src="js/index-script.js" defer></script>
     
     <script>
     (function(){

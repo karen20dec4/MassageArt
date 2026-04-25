@@ -278,3 +278,30 @@ MassageArt/
 | Add booking widget | `en/contact.html` — replace/augment `.leave-message` section |
 | SEO meta tags | `<head>` of each individual HTML file |
 | Add blog article | Create new `en/*.html` file, link from `en/blog.html` |
+
+---
+
+## 9. PERFORMANCE BASELINE (PageSpeed Insights, Mobile — 2026-04-25)
+
+| Metric | Value |
+|---|---|
+| **Performance Score** | **58 / 100** |
+| Render-blocking duration | ~4 380 ms (10 CSS files + 3 separate Google Fonts) |
+| Cache TTL on static assets | **None** (1 530 KiB re-downloaded each visit) |
+| Unused CSS rules | ~365 KiB across `bootstrap.min.css`, `style.css`, `animate.css`, `responsive.css`, `jquery-ui.css`, `font-awesome.min.css` |
+| Heaviest JS | `jquery-ui.min.js` (235 KB) — loaded on every page even when unused |
+| Heaviest images | `slider/slider-2-about.jpg` (175 KB), `slider/slider-1.jpg` (173 KB) |
+| Font display | not `swap` for Flaticon, FontAwesome, Google Fonts |
+
+Full report: `.copilot/raport-seo-mobile.txt`
+Active optimization plan: `.copilot/MOBILE_OPTIMIZATION_PLAN.md`
+
+### Files known to have NO build pipeline (manual edits required across all of them)
+- All `*.html` at root (NO version)
+- All `en/*.html` (EN version)
+- `.htaccess` (root) — handles HTTPS redirect, www→non-www, index.html canonicalization
+
+### Backup / draft files to ignore when batch-editing
+- `index_3dec2025.html`, `*_orig.html`, `*_.html`, `contact_.html`
+- `no_OLD/` (old Norwegian directory — kept for reference)
+- `test/` directory
