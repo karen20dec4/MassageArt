@@ -318,10 +318,10 @@ $(function() {
 
 
 /*--------------------------------------------------------------
-    Jquery date picker
+    Jquery date picker (disabled - elements not present on site)
 --------------------------------------------------------------*/
-    $('#arrive-date').datepicker();
-    $('#depart-date').datepicker();
+    // $('#arrive-date').datepicker();
+    // $('#depart-date').datepicker();
 
 
 
