@@ -454,7 +454,7 @@
             children.forEach(function(c){c.style.cursor='pointer'});
             box.addEventListener('click',function(e){
                 var target=e.target;
-                while(target&&target! ==box){ if(target.tagName==='A')return; target=target.parentNode; }
+                while(target&&target!==box){ if(target.tagName==='A')return; target=target.parentNode; }
                 window.location.href=href;
             });
             box.addEventListener('keydown',function(e){
