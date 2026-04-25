@@ -1,6 +1,8 @@
 # PLAN DE OPTIMIZARE PERFORMANCE MOBILE — MassageART Oslo
 > Sursă: `.copilot/raport-seo-mobile.txt` (PageSpeed Insights, captat 2026-04-25)
-> Scor curent: **Performance = 58 / 100 (Mobile)**
+> Scor inițial: **Performance = 58 / 100 (Mobile)**
+> ✅ După Faza 1 (validat 2026-04-25): **68 / 100** (+10 pct)
+> 🔜 După Faza 2 (de validat): estimat **73-76 / 100** (+5-8 pct, economie 1.48 MB pe imagini)
 > Țintă realistă: **85+ / 100** fără modificarea structurii sau a funcționalității site-ului.
 > Aplicabil pentru: site static HTML/CSS/JS (Bootstrap 3 + jQuery 1.11.3 + OWL + Animate.css)
 >
@@ -48,69 +50,95 @@
 
 ## 3. PLAN DE EXECUȚIE — 5 FAZE
 
-### 🟢 FAZA 1 — Quick wins server-side & `<head>` (RISC ZERO)
-*Estimare: +15-20 puncte PageSpeed; aplicabil în toate paginile odată cu `.htaccess`.*
+### 🟢 FAZA 1 — Quick wins server-side & `<head>` (RISC ZERO) — ✅ COMPLETĂ
+*Estimare inițială: +15-20 puncte. **Rezultat real: +10 puncte (58 → 68).***
 
-1. **`.htaccess` — Cache lifetimes** (rezolvă problema #2)
-   - `mod_expires`: 1 an pentru CSS/JS/imagini/fonturi cu hash sau care nu se schimbă des
-   - `Cache-Control: public, max-age=31536000, immutable` pentru assets statice
-   - HTML: `max-age=3600, must-revalidate` (fresh la modificări de conținut)
+Status implementare (commit-uri `perf(faza-1)`):
 
-2. **`.htaccess` — Compresie GZIP/Brotli** (rezolvă parte din #1, #3)
-   - `mod_deflate` pentru `text/html`, `text/css`, `application/javascript`, `image/svg+xml`, `application/json`, `text/xml`
-   - Reduce CSS-urile mari cu 70-80% (style.css 103 KB → ~20 KB pe wire)
+1. ✅ **`.htaccess` — Cache lifetimes + GZIP + Brotli + Keep-Alive + headere securitate**
+   - `mod_expires`: 1 an pentru CSS/JS/imagini/fonturi, 1 oră pentru HTML
+   - `Cache-Control: public, max-age=31536000, immutable` pe assets statice
+   - `mod_deflate` + `mod_brotli` pentru text/CSS/JS/SVG/JSON/fonturi
+   - MIME types `.webp`, `.avif`, `.woff2`
+   - `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`
 
-3. **`.htaccess` — Keep-Alive & headere securitate**
-   - `Header set Connection keep-alive`
-   - `Header set X-Content-Type-Options nosniff`
+2. ✅ **Google Fonts — combinare într-un singur request + preconnect + swap**
+   - 3 link-uri separate → 1 cerere `css2?family=Open+Sans:wght@400;600&family=Playfair+Display:ital@1&family=Raleway:wght@300;600;700;800&display=swap`
+   - Adăugat `<link rel="preconnect" href="https://fonts.googleapis.com">` + `<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>`
+   - **Aplicat în toate cele 26 de pagini active** (NO + EN)
 
-4. **Google Fonts — combinare într-un singur request + swap** (rezolvă #4)
-   - Înlocuim 3 link-uri separate cu **un singur** `https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@300;600;700;800&family=Playfair+Display:ital@1&display=swap`
-   - Adăugăm `<link rel="preconnect" href="https://fonts.googleapis.com">` + `<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>`
+3. ✅ **`font-display: swap` pentru fonturile locale**
+   - Adăugat în `flat-icon/flaticon.css` și `font-awesome/css/font-awesome.min.css`
 
-5. **`font-display: swap` pentru fonturile locale** (rezolvă #4)
-   - Override `@font-face` pentru Flaticon (în `flat-icon/flaticon.css` sau `<style>` inline)
-   - Override `@font-face` pentru FontAwesome (declarație nouă cu `font-display: swap`)
+4. ✅ **`defer` pe toate scripturile JS locale**
+   - 148 tag-uri `<script src="js/..."` → `<script src="js/..." defer>`
+   - Verificat: NU există inline `$(...)` / `jQuery(...)` care ar fi rupt cu defer
+   - Scripturile IE-only (`html5shiv`, `respond` din CDN extern, în condiționale `<!--[if lt IE 9]>`) lăsate intacte
 
-6. **`defer` pe scripturile JS** (rezolvă #6)
-   - Adăugăm `defer` la `bootstrap.min.js`, `owl.carousel.min.js`, `jquery.appear.js`, `jquery.animateNumber.min.js`, `index-script.js` și restul scripturilor per-pagină
-   - jQuery + jQuery-UI rămân fără `defer` doar dacă există `<script>` inline care le folosesc; preferabil mutăm jQuery în `defer` și verificăm
-   - Alternativ minim invaziv: mutăm toate `<script>` din header la finalul `<body>` (dacă nu sunt deja) și adăugăm `defer`
+5. ✅ **Preload LCP image + `fetchpriority="high"`** (homepage NO + EN)
+   - `<link rel="preload" as="image" href="images/home-1/slider/slider-0.webp" fetchpriority="high">` (path-ul a devenit `.webp` după Faza 2)
 
-7. **Preload LCP image + `fetchpriority="high"`** (rezolvă #5 parțial)
-   - Identificat: `images/home-1/slider/slider-0.jpg` este background-ul primului slide hero (LCP candidate pe homepage)
-   - `<link rel="preload" as="image" href="images/home-1/slider/slider-0.jpg" fetchpriority="high">` în `<head>` pe `index.html`
-   - Pentru paginile interne se identifică LCP-ul respectiv (banner h1 / hero secundar)
-
-8. **`width` + `height` pe toate `<img>`** (rezolvă #7, CLS)
-   - Adăugăm atribute explicite pe imaginile fără ele (logo, slider thumbnails, about, services)
+6. ⏭️ **`width` + `height` pe `<img>` (CLS)** — încă neaplicat, pentru Faza 3
 
 ---
 
-### 🟡 FAZA 2 — Optimizare imagini (RISC MIC)
-*Estimare: +5-10 puncte; reduce LCP cu 1-2 secunde.*
+### 🟡 FAZA 2 — Optimizare imagini WebP (RISC MIC) — ✅ COMPLETĂ
+*Strategie hibridă confirmată cu utilizatorul: **WebP la `q=80` doar pe imaginile JPG > 80 KB.***
 
-1. **Conversie WebP cu fallback** pentru imaginile JPG mari (>30 KB):
-   - `slider/slider-0.jpg` (52 KB) → slider-0.webp (~15 KB)
-   - `slider/slider-1.jpg` (173 KB) → slider-1.webp (~40 KB)
-   - `slider/slider-2.jpg` → slider-2.webp
-   - `about/slider/slider-1-about.jpg` (28 KB), `slider-2-about.jpg` (175 KB)
-   - `home-1/home-img1.jpg` (59 KB), `beautifull-spa.jpg` (48 KB), `home-massage.jpg` (36 KB)
-   - `images/logo.png` (33 KB) → versiune mai mică WebP/PNG optimizat
+**Test preliminar pe `slider-1.jpg` (1920×1080, 172 KB JPEG):**
 
-2. **`<picture>` element** acolo unde se folosește `<img>` direct (about-slider etc.)
-   - Pentru `background-image` în CSS, folosim `image-set()` cu fallback JPG sau strategie CSS feature query
+| Calitate WebP | Mărime | vs JPG |
+|---|---:|---:|
+| q=95 | 341 KB | **+98%** ❌ |
+| q=90 *(propus inițial)* | 232 KB | **+35%** ❌ |
+| q=85 | 167 KB | −3% (nesemnificativ) |
+| q=82 | 144 KB | −16% ✅ |
+| **q=80** *(ales)* | **132 KB** | **−25% ✅** |
 
-3. **`loading="lazy"` + `decoding="async"`** pe toate imaginile sub fold
-   - Imaginile din hero (above the fold) primesc `loading="eager"` + `fetchpriority="high"`
-   - Toate celelalte: `loading="lazy" decoding="async"`
+⚠️ JPG-urile sursă erau deja agresiv comprimate (≈q75-80). La q=90 WebP-ul ar fi fost MAI MARE decât JPG-ul, contraproductiv pentru PageSpeed.
 
-4. **Logo PNG → versiune mai mică** (33 KB e mult pentru logo)
-   - Optimizare cu compressie PNG sau conversie SVG dacă e posibil
+**Implementare (commit `perf(faza-2)`):**
+
+1. ✅ **Generare WebP cu `cwebp -q 80 -m 6 -mt`** pentru 13 imagini > 80 KB
+   - Inclus suplimentar `slider-0.jpg` (52 KB) deoarece este LCP — convertit pentru consistență cu `slider-1.webp`
+   - 2 imagini convertite inițial dar **orfane** (fără referințe în HTML/CSS/JS active): `summer-sales.jpg`, `home-1/slider/slider-2.jpg` — WebP-urile orfane șterse, JPG-urile lăsate intacte
+
+2. ✅ **Rezultate conversie (12 imagini active):**
+
+   | Fișier | JPG | WebP | Economie |
+   |---|---:|---:|---:|
+   | about/about-us | 425 KB | 94 KB | **−78%** |
+   | about/about-us-2 | 419 KB | 100 KB | **−76%** |
+   | about/slider/slider-2-about | 175 KB | 10 KB | **−94%** 🏆 |
+   | home-1/slider/slider-1 | 172 KB | 129 KB | −25% |
+   | home-1/slider/slider-0 (LCP) | 51 KB | 25 KB | −52% |
+   | contact/contact | 161 KB | 84 KB | −48% |
+   | service/banar-woman | 131 KB | 54 KB | −59% |
+   | news-bg | 128 KB | 10 KB | **−92%** |
+   | service/banar | 111 KB | 48 KB | −56% |
+   | service/banar-couple | 108 KB | 30 KB | −72% |
+   | blog/Emotions_and_Tantra | 106 KB | 70 KB | −34% |
+   | blog/tantric_massage | 88 KB | 47 KB | −46% |
+   | **TOTAL** | **2 459 KB** | **701 KB** | **−71%** (≈ 1.7 MB economisiți) |
+
+3. ✅ **Înlocuire referințe `.jpg` → `.webp` (19 înlocuiri în 7 fișiere):**
+   - HTML: `index.html`, `en/index.html`, `about.html`, `en/about.html`, `blog.html`, `en/blog.html` (preload + `<img src>`)
+   - CSS: `css/style.css` (7 background-image URLs: `.item-0`, `.item-1`, `.contact-bg`, `.banar-woman`, `.banar`, `.banar-couple`, `.news-bg`)
+   - **Strategie:** înlocuire directă (nu `<picture>`), conform cerinței utilizatorului. WebP are suport mobile ~97% în 2026.
+
+4. ✅ **Ștergere JPG-uri convertite** (12 fișiere) — eliminat dublajul de assets, repo dim. `images/` 5.6 MB → 3.9 MB.
+
+5. ✅ **Smoke test HTTP local:** toate paginile (NO+EN) răspund 200, toate WebP-urile servesc, vechile JPG-uri răspund 404 (confirmare că nicio referință stale nu a rămas).
+
+**De NU s-a făcut în Faza 2 (mutat în Faza 3):**
+- `loading="lazy"` + `decoding="async"` sistematic pe imaginile sub fold
+- `<picture>` cu fallback JPG (decis explicit cu user să mergem direct pe WebP)
+- Optimizare logo PNG
+- `image-set()` în CSS pentru fallback (renunțat — WebP support 97%+ pe mobile)
 
 ---
 
-### 🟠 FAZA 3 — Critical CSS path (RISC MEDIU)
+### 🟠 FAZA 3 — Critical CSS path (RISC MEDIU) — 🔜 URMĂTOARE
 *Estimare: +10-15 puncte; reduce FCP cu 2-3 secunde.*
 
 1. **Inline critical CSS** în `<head>`:
@@ -128,7 +156,10 @@
    - Verificat per pagină: `index.html`, `about.html`, `service*.html`, `shop.html`, `blog.html`, `faq.html`, `ethics.html` — probabil nu folosesc datepicker/slider UI
    - `contact.html` — verificat dacă are nevoie
 
-4. **Font Awesome subset** (opțional, dacă e timp)
+4. **`width` + `height` explicit pe toate `<img>` (CLS)** — mutat din Faza 1
+   - Adăugăm atribute explicite pe imaginile fără ele (logo, slider thumbnails, about, services)
+
+5. **Font Awesome subset** (opțional, dacă e timp)
    - Generăm un subset doar cu iconițele folosite (probabil ~10-15 din ~600+)
    - Reducere: 26 KB → ~5 KB
 
@@ -157,17 +188,16 @@
 
 ---
 
-## 4. METRICI ȚINTĂ
+## 4. METRICI ȚINTĂ & PROGRES REAL
 
-| Metrică | Curent (estimat din raport) | Țintă |
-|---|---|---|
-| **Performance Score** | 58 | **85+** |
-| **LCP** | > 4 s | < 2.5 s |
-| **FCP** | > 2 s | < 1.8 s |
-| **TBT** | mare | < 200 ms |
-| **CLS** | necunoscut | < 0.1 |
-| **Total transfer (homepage)** | ~1 530 KiB | < 800 KiB |
-| **Render-blocking duration** | 4 380 ms | < 500 ms |
+| Metrică | Inițial | După Faza 1 (validat) | După Faza 2 (estimat) | Țintă |
+|---|---|---|---|---|
+| **Performance Score** | 58 | **68** ✅ | 73-76 | **85+** |
+| **LCP** | > 4 s | îmbunătățit | îmbunătățit (-25 KB pe LCP) | < 2.5 s |
+| **FCP** | > 2 s | îmbunătățit | la fel ca Faza 1 | < 1.8 s |
+| **TBT** | mare | redus prin `defer` | la fel | < 200 ms |
+| **Total transfer (homepage)** | ~1 530 KiB | ~1 430 KiB | **~270 KiB** (−1 160 KiB doar imagini) | < 800 KiB |
+| **Render-blocking duration** | 4 380 ms | redus | redus | < 500 ms |
 
 ---
 
@@ -187,16 +217,24 @@
 
 ---
 
-## 6. ORDINEA RECOMANDATĂ DE LIVRARE (commits)
+## 6. ORDINEA REALĂ DE LIVRARE (commits)
 
-1. `perf: add cache headers, gzip and security headers in .htaccess`
-2. `perf: combine google fonts in single request with display=swap + preconnect`
-3. `perf: add font-display swap for local icon fonts (flaticon, font-awesome)`
-4. `perf: defer non-critical JS scripts`
-5. `perf: preload LCP hero image + add width/height on images (CLS)`
-6. `perf: add WebP variants for hero/slider/about images with picture fallback`
-7. `perf: async-load non-critical CSS (animate, jquery-ui, owl, nivo)`
-8. `perf: inline critical above-the-fold CSS`
-9. `perf: replicate optimizations to all NO + EN pages`
+| # | Commit | Status |
+|---|---|---|
+| 1 | `perf: add cache headers, gzip and security headers in .htaccess` | ✅ |
+| 2 | `perf: combine google fonts in single request with display=swap + preconnect` (homepage NO) | ✅ |
+| 3 | `perf: add font-display swap for local icon fonts (flaticon, font-awesome)` | ✅ |
+| 4 | `perf: defer non-critical JS scripts` (homepage NO) | ✅ |
+| 5 | `perf: preload LCP hero image` (homepage NO) | ✅ |
+| 6 | `perf(faza-1): replicate Google Fonts combine + defer JS across all NO + EN pages` | ✅ |
+| 7 | **`perf(faza-2): convert 12 large JPG images to WebP @ q=80, update HTML+CSS refs`** | ✅ **CURENT** |
+| 8 | `perf(faza-3): async-load non-critical CSS (animate, jquery-ui, owl, nivo)` | 🔜 |
+| 9 | `perf(faza-3): inline critical above-the-fold CSS` | 🔜 |
+| 10 | `perf(faza-3): add explicit width/height on img tags for CLS` | 🔜 |
+
+**Validare PageSpeed după fiecare commit major:**
+- După #6: **58 → 68** (+10) — confirmat de utilizator 2026-04-25
+- După #7: TBD — utilizatorul va testa și raporta
+- După #8-9: TBD
 
 Fiecare commit este reversibil independent dacă apare o regresie.
