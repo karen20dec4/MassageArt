@@ -632,12 +632,12 @@ header .search-box form button {
 
 /****slider image setting****/
 #home-1 .hero .item-0 {
-	background: url(../images/home-1/slider/slider-0.jpg) no-repeat 50% 50%;
+	background: url(../images/home-1/slider/slider-0.webp) no-repeat 50% 50%;
 	background-size: cover;
 }
 
 #home-1 .hero .item-1 {
-	background: url(../images/home-1/slider/slider-1.jpg) no-repeat 50% 50%;
+	background: url(../images/home-1/slider/slider-1.webp) no-repeat 50% 50%;
 	background-size: cover;
 }
 /****slider image setting****/
@@ -1727,7 +1727,7 @@ header .search-box form button {
 #1.8	news-shop
 --------------------------------------------------------------*/
 .news-shop {
-	background: url(../images/news-bg.jpg) no-repeat 50% 50%;
+	background: url(../images/news-bg.webp) no-repeat 50% 50%;
 	background-size: cover;
 	padding: 100px 0;
 	position: relative;
@@ -3062,7 +3062,7 @@ footer .copyright .nav a:hover {
 #4.1	banar
 --------------------------------------------------------------*/
 .banar {
-	background: url(../images/service/banar.jpg) no-repeat 50% 50%;
+	background: url(../images/service/banar.webp) no-repeat 50% 50%;
 	background-size: cover;
 	height: 450px;
 }
@@ -3076,13 +3076,13 @@ footer .copyright .nav a:hover {
 
 
 .banar-couple {
-	background: url(../images/service/banar-couple.jpg) no-repeat 50% 50%;
+	background: url(../images/service/banar-couple.webp) no-repeat 50% 50%;
 	background-size: cover;
 	height: 450px;
 }
 
 .banar-woman {
-	background: url(../images/service/banar-woman.jpg) no-repeat 50% 50%;
+	background: url(../images/service/banar-woman.webp) no-repeat 50% 50%;
 	background-size: cover;
 	height: 450px;
 }
@@ -4418,7 +4418,7 @@ footer .copyright .nav a:hover {
 
 /*left-col*/
 #contact .leave-message .left-col {
-	background: url(../images/contact/contact.jpg) no-repeat 50% 50%;
+	background: url(../images/contact/contact.webp) no-repeat 50% 50%;
 	background-size: cover;
 	text-align: center;
 	position: relative;
