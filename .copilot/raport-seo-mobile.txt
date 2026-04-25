@@ -1,0 +1,342 @@
+#### Captured at Apr 25, 2026, 6:06 PM GMT+3
+#### PageSpeed Insights
+
+
+Use efficient cache lifetimes Est savings of 1,530 KiB
+A long cache lifetime can speed up repeat visits to your page. Learn more about caching.LCPFCPUnscored
+Request
+	
+Cache TTL
+	
+Transfer Size
+massageart.no
+1st party
+		1,530 KiB
+/js/jquery-ui.min.js(massageart.no)
+	
+None
+	
+235 KiB
+…slider/slider-2-about.jpg(massageart.no)
+	
+None
+	
+175 KiB
+…slider/slider-1.jpg(massageart.no)
+	
+None
+	
+173 KiB
+/css/bootstrap.min.css(massageart.no)
+	
+None
+	
+119 KiB
+/css/style.css(massageart.no)
+	
+None
+	
+103 KiB
+/js/jquery-1.11.3.min.js(massageart.no)
+	
+None
+	
+94 KiB
+/css/animate.css(massageart.no)
+	
+None
+	
+71 KiB
+…fonts/fontawesome-webfont.woff2?v=4.4.0(massageart.no)
+	
+None
+	
+63 KiB
+…home-1/home-img1.jpg(massageart.no)
+	
+None
+	
+59 KiB
+…slider/slider-0.jpg(massageart.no)
+	
+None
+	
+52 KiB
+…home-1/beautifull-spa.jpg(massageart.no)
+	
+None
+	
+48 KiB
+/css/responsive.css(massageart.no)
+	
+None
+	
+46 KiB
+…home-1/home-massage.jpg(massageart.no)
+	
+None
+	
+36 KiB
+/js/bootstrap.min.js(massageart.no)
+	
+None
+	
+36 KiB
+/css/jquery-ui.css(massageart.no)
+	
+None
+	
+35 KiB
+/images/logo.png(massageart.no)
+	
+None
+	
+33 KiB
+…slider/slider-1-about.jpg(massageart.no)
+	
+None
+	
+28 KiB
+…css/font-awesome.min.css(massageart.no)
+	
+None
+	
+26 KiB
+/js/owl.carousel.min.js(massageart.no)
+	
+None
+	
+24 KiB
+/flat-icon/Flaticon.woff(massageart.no)
+	
+None
+	
+15 KiB
+…home-1/logo.png(massageart.no)
+	
+None
+	
+13 KiB
+/js/index-script.js(massageart.no)
+	
+None
+	
+13 KiB
+/css/css3-animation.css(massageart.no)
+	
+None
+	
+5 KiB
+/js/jquery.appear.js(massageart.no)
+	
+None
+	
+4 KiB
+/images/flag_no.png(massageart.no)
+	
+None
+	
+4 KiB
+/flat-icon/flaticon.css(massageart.no)
+	
+None
+	
+3 KiB
+…home-1/adventure-bg.jpg(massageart.no)
+	
+None
+	
+3 KiB
+…services/bg.jpg(massageart.no)
+	
+None
+	
+3 KiB
+…home-1/title-bg-xs.png(massageart.no)
+	
+None
+	
+3 KiB
+/images/whatsapp-logo-small.png(massageart.no)
+	
+None
+	
+2 KiB
+/css/owl.theme.css(massageart.no)
+	
+None
+	
+2 KiB
+/css/owl.carousel.css(massageart.no)
+	
+None
+	
+2 KiB
+/js/jquery.animateNumber.min.js(massageart.no)
+	
+None
+	
+2 KiB
+
+#######################################################################
+#######################################################################
+
+Render blocking requests Est savings of 4,380 ms
+Requests are blocking the page's initial render, which may delay LCP. Deferring or inlining can move these network requests out of the critical path.LCPFCPUnscored
+URL
+	
+Transfer Size
+	
+Duration
+massageart.no
+1st party
+	412.4 KiB
+	23,500 ms
+/css/style.css(massageart.no)
+	
+103.2 KiB
+	
+4,510 ms
+/css/bootstrap.min.css(massageart.no)
+	
+118.7 KiB
+	
+5,450 ms
+/css/animate.css(massageart.no)
+	
+70.9 KiB
+	
+3,770 ms
+/css/responsive.css(massageart.no)
+	
+46.1 KiB
+	
+2,650 ms
+/css/jquery-ui.css(massageart.no)
+	
+35.1 KiB
+	
+2,840 ms
+…css/font-awesome.min.css(massageart.no)
+	
+26.4 KiB
+	
+1,900 ms
+/flat-icon/flaticon.css(massageart.no)
+	
+3.3 KiB
+	
+780 ms
+/css/owl.carousel.css(massageart.no)
+	
+1.7 KiB
+	
+600 ms
+/css/owl.theme.css(massageart.no)
+	
+1.9 KiB
+	
+600 ms
+/css/css3-animation.css(massageart.no)
+	
+5.0 KiB
+	
+410 ms
+Google Fonts
+cdn
+	4.9 KiB
+	2,250 ms
+/css?family=Raleway:800,700,600,300(fonts.googleapis.com)
+	
+1.3 KiB
+	
+750 ms
+/css?family=Open+Sans:400,600(fonts.googleapis.com)
+	
+2.3 KiB
+	
+750 ms
+/css?family=Playfair+Display:400italic(fonts.googleapis.com)
+	
+1.2 KiB
+	
+750 ms
+
+
+#######################################################################
+#######################################################################
+  
+
+Font display Est savings of 120 ms
+Consider setting font-display to swap or optional to ensure text is consistently visible. swap can be further optimized to mitigate layout shifts with font metric overrides.FCPUnscored
+URL
+	
+Est Savings
+massageart.no
+1st party
+	
+/flat-icon/Flaticon.woff(massageart.no)
+	
+120 ms
+…fonts/fontawesome-webfont.woff2?v=4.4.0(massageart.no)
+	
+100 ms
+Google Fonts
+cdn
+	
+…v44/memvYaGs1….woff2(fonts.gstatic.com)
+	
+10 ms
+…v40/nuFRD-vYS….woff2(fonts.gstatic.com)
+	
+10 ms
+…v37/1Ptug8zYS….woff2(fonts.gstatic.com)
+	
+10 ms
+
+
+#######################################################################
+#######################################################################
+
+Reduce unused rules from stylesheets and defer CSS not used for above-the-fold content to decrease bytes consumed by network activity. Learn how to reduce unused CSS.LCPFCPUnscored
+URL
+	
+Transfer Size
+	
+Est Savings
+massageart.no
+1st party
+	398.6 KiB
+	365.3 KiB
+/css/bootstrap.min.css(massageart.no)
+	
+118.4 KiB
+	
+113.0 KiB
+/css/style.css(massageart.no)
+	
+102.9 KiB
+	
+82.0 KiB
+/css/animate.css(massageart.no)
+	
+70.6 KiB
+	
+70.6 KiB
+/css/responsive.css(massageart.no)
+	
+45.8 KiB
+	
+39.3 KiB
+/css/jquery-ui.css(massageart.no)
+	
+34.8 KiB
+	
+34.8 KiB
+…css/font-awesome.min.css(massageart.no)
+	
+26.1 KiB
+	
+25.8 KiB
+
+
