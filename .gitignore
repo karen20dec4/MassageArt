@@ -6,6 +6,7 @@
 *.tgz
 *.tar
 *.gz
+*.zip
 
 # temp / logs
 *.log
