@@ -14,8 +14,3 @@ RewriteEngine On
 RewriteCond %{THE_REQUEST} /index\.html
 RewriteRule ^index\.html$ / [R=301,L]
 
-
-# 4) Redirect NO index.html -> /no/
-RewriteCond %{THE_REQUEST} /no/index\.html
-RewriteRule ^no/index\.html$ /no/ [R=301,L]
-
