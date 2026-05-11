@@ -15,9 +15,25 @@ RewriteCond %{THE_REQUEST} /index\.html
 RewriteRule ^index\.html$ / [R=301,L]
 
 
-# 4) Redirect NO index.html -> /no/
-RewriteCond %{THE_REQUEST} /no/index\.html
-RewriteRule ^no/index\.html$ /no/ [R=301,L]
+# 4) Redirect /no/ and /no/index.html -> /
+RewriteRule ^no/?$ / [R=301,L]
+RewriteRule ^no/index\.html$ / [R=301,L]
+
+# 5a) Redirect old /no/* pages -> root equivalents
+RewriteRule ^no/about\.html$ /about.html [R=301,L]
+RewriteRule ^no/blog\.html$ /blog.html [R=301,L]
+RewriteRule ^no/contact\.html$ /contact.html [R=301,L]
+RewriteRule ^no/ethics\.html$ /ethics.html [R=301,L]
+RewriteRule ^no/faq\.html$ /faq.html [R=301,L]
+RewriteRule ^no/service\.html$ /service.html [R=301,L]
+RewriteRule ^no/service-woman\.html$ /service-woman.html [R=301,L]
+RewriteRule ^no/service-couple\.html$ /service-couple.html [R=301,L]
+RewriteRule ^no/shop\.html$ /shop.html [R=301,L]
+RewriteRule ^no/tantric-massage-in-oslo\.html$ /tantric-massage-in-oslo.html [R=301,L]
+RewriteRule ^no/harmoni-og-hormonbalanse-gjennom-tantrisk-massasje\.html$ /harmoni-og-hormonbalanse-gjennom-tantrisk-massasje.html [R=301,L]
+
+# 5b) Redirect root /harmony article -> /en/ version
+RewriteRule ^harmony-and-hormonal-balance-through-tantra-massage\.html$ /en/harmony-and-hormonal-balance-through-tantra-massage.html [R=301,L]
 
 
 # =============================================================
