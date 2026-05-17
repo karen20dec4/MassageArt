@@ -410,12 +410,28 @@ $(function() {
     // back-to-top
     $('body').prepend('<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>');
     var amountScrolled = 300;
+    var $stickyHeader = $('header.common-header');
+    // Hysteresis: add .scrolled when crossing 80px downward, remove it only
+    // when going back above 30px. The gap prevents the class from toggling
+    // on/off rapidly around a single threshold while the header shrinks
+    // and the layout shifts.
+    var shrinkAt = 80;
+    var unshrinkAt = 30;
 
     $(window).scroll(function() {
-        if ($(window).scrollTop() > amountScrolled) {
+        var st = $(window).scrollTop();
+        if (st > amountScrolled) {
             $('a.back-to-top').fadeIn('slow');
         } else {
             $('a.back-to-top').fadeOut('slow');
+        }
+        // Shrink the sticky header past the logo zone (desktop only — the
+        // .scrolled CSS rules live inside a min-width: 768px media query).
+        var isScrolled = $stickyHeader.hasClass('scrolled');
+        if (!isScrolled && st > shrinkAt) {
+            $stickyHeader.addClass('scrolled');
+        } else if (isScrolled && st < unshrinkAt) {
+            $stickyHeader.removeClass('scrolled');
         }
     });
     

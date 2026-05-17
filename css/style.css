@@ -247,6 +247,51 @@ form input[type="number"] {
     z-index: 100;
 }
 
+/* Disable browser scroll anchoring on the body so the sticky-header
+   shrink/expand transition doesn't cause scrollY to oscillate around
+   the threshold (which produced a flicker loop). */
+body {
+	overflow-anchor: none;
+}
+
+/* Sticky header on desktop only. When the user scrolls past ~80px the
+   .scrolled class is added by JS (common-script.js / index-script.js).
+   In .scrolled state the logo zone is hidden but its horizontal width is
+   preserved (visibility:hidden + height:0 + overflow:hidden), so the menu
+   items don't shift to the left. The background also turns semi-transparent
+   so the page behind shows through the slim bar. */
+@media (min-width: 768px) {
+	.common-header {
+		position: -webkit-sticky;
+		position: sticky;
+		top: 0;
+		transition: background-color 0.2s ease;
+	}
+	.common-header.scrolled {
+		background-color: rgba(17, 17, 17, 0.75);
+	}
+	.common-header.scrolled .navbar-header {
+		display: none;
+	}
+	/* CSS dummy spacer: reserve the horizontal space the logo zone used to
+	   take (logo image 155px + .navbar-brand padding 15px+15px = 185px) so
+	   the nav menu doesn't shift to the left when the logo is hidden.
+	   If the logo image is replaced, adjust this value to match new width. */
+	.common-header.scrolled .navbar #navbar {
+		margin-left: 185px;
+	}
+	.common-header.scrolled .navbar {
+		padding-bottom: 4px;
+	}
+	.common-header.scrolled .navbar .navbar-nav,
+	.common-header.scrolled .navbar #navbar .navbar-nav {
+		margin-top: 4px;
+	}
+	.common-header.scrolled .search-wrapper {
+		top: 4px;
+	}
+}
+
 .common-header .navbar {
 	padding-bottom: 24px;
 }
@@ -444,15 +489,19 @@ header .navbar .container {
 
 header .navbar .navbar-nav {
 	margin-top: 27px;
-	visibility: hidden;
-	opacity: 0;
+	visibility: visible;
+	opacity: 1;
 	-webkit-transition: all 0.8s;
 	transition: all 0.8s;
 }
 
+/* On desktop the menu is visible by default; the .open-menu (☰) button
+   adds the .toggle-menu class via JS to hide it as a toggle.
+   On mobile (≤767px) the .navbar-nav is force-shown by responsive.css and
+   the .open-menu button is display:none, so this rule has no effect there. */
 .toggle-menu {
-	visibility: visible !important;
-	opacity: 1 !important;
+	visibility: hidden !important;
+	opacity: 0 !important;
 }
 
 .toggle-dropdown-menu {
@@ -3296,7 +3345,7 @@ footer .copyright .nav a:hover {
 
 #service .services .section-title p {
 	line-height: 29px;
-	margin-bottom: 70px;
+	margin-bottom: 20px;
 }
 
 #service .spa-advantages {

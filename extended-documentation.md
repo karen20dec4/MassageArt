@@ -90,6 +90,7 @@ All NO pages live at the repo root; their EN counterpart lives in `en/`. Most fi
 | `service.html` | `/service.html` | Tantra massage **for men** | `en/service.html` |
 | `service-woman.html` | `/service-woman.html` | Tantra massage **for women** | `en/service-woman.html` |
 | `service-couple.html` | `/service-couple.html` | Tantra massage **for couples** | `en/service-couple.html` |
+| `service-vip.html` | `/service-vip.html` | Tantrisk Luxury VIP (Devine Escape) | `en/service-vip.html` |
 | `shop.html` | `/shop.html` | Prices & packages | `en/shop.html` |
 | `blog.html` | `/blog.html` | Blog index (single-page list, see §6) | `en/blog.html` |
 | `faq.html` | `/faq.html` | FAQ | `en/faq.html` |
@@ -108,6 +109,7 @@ All NO pages live at the repo root; their EN counterpart lives in `en/`. Most fi
 | `en/service.html` | `/en/service.html` | Tantra massage **for men** | `service.html` |
 | `en/service-woman.html` | `/en/service-woman.html` | Tantra massage **for women** | `service-woman.html` |
 | `en/service-couple.html` | `/en/service-couple.html` | Tantra massage **for couples** | `service-couple.html` |
+| `en/service-vip.html` | `/en/service-vip.html` | Tantric Luxury VIP (Devine Escape) | `service-vip.html` |
 | `en/shop.html` | `/en/shop.html` | Prices & packages | `shop.html` |
 | `en/blog.html` | `/en/blog.html` | Blog index | `blog.html` |
 | `en/faq.html` | `/en/faq.html` | FAQ | `faq.html` |
@@ -184,6 +186,7 @@ There is **no template engine**. Every HTML page contains a hand-duplicated head
 | — Tantra Massasje for Menn | `service.html` | — Tantra Massage for Men | `service.html` |
 | — Tantra Massasje for Kvinner | `service-woman.html` | — Tantra Massage for Women | `service-woman.html` |
 | — Tantric Massasje for Par | `service-couple.html` | — Tantric Massage for Couples | `service-couple.html` |
+| — Tantrisk Luxury VIP | `service-vip.html` | — Tantric Luxury VIP | `service-vip.html` |
 | BLOGG | `blog.html` | Blog | `blog.html` |
 | FAQ | `faq.html` | FAQ | `faq.html` |
 | KONTAKT | `contact.html` | Contact | `contact.html` |
@@ -269,8 +272,11 @@ Do all of the following, in both languages:
 | `service.html` | Men | `en/service.html` |
 | `service-woman.html` | Women | `en/service-woman.html` |
 | `service-couple.html` | Couples | `en/service-couple.html` |
+| `service-vip.html` | Luxury VIP (premium, Devine Escape) | `en/service-vip.html` |
 
-These pages share the same header/footer/switcher pattern and each load `js/common-script.js` + `js/service-script.js`.
+These pages share the same header/footer/switcher pattern, each have `<body id="service">`, and each load `js/common-script.js` + `js/service-script.js`. The shared `#service .services .section-title p { margin-bottom: 20px; }` rule in `css/style.css` controls paragraph spacing on all four; tune that one rule to change rhythm site-wide for service pages.
+
+The VIP page additionally defines a small inline `<style>` block (`.vip-included`, `.vip-prices`) for the "What is included / Hva er inkludert" + price card on the page itself. It uses the generic `.banar` hero class (same background image as `service.html`); to give VIP its own banner image, add `images/service/banar-vip.webp` and a matching `.banar-vip` rule in `css/style.css`, then switch the class in both `service-vip.html` files.
 
 ### CTA buttons (verified against current files, 2026-05-17)
 
@@ -282,6 +288,7 @@ Each page has a **unique** CTA label — do not reuse text across pages. All CTA
 | `service.html` | Bestill din massasje i dag | Reserve your massage today |
 | `service-woman.html` | Bestill din private tantriske massasje | Book your private tantric massage |
 | `service-couple.html` | Opplev ekte avslapning i dag | Discover true relaxation today |
+| `service-vip.html` | Vi håper du kommer på besøk snart! | We Would Love to Have You Visit Soon! |
 | `faq.html` | Send meg en melding nå | Send me a message now |
 | `Hva-er-tantramassasje.html` / `en/What-is-a-Tantra-Massage.html` | Start din tantriske opplevelse nå | Begin your tantric experience now |
 | `harmoni-…` / `harmony-…` | Bestill time | Book Your Session |
@@ -397,7 +404,7 @@ Homepages (`index.html`, `en/index.html`) additionally carry:
 
 ### Sitemap
 
-`sitemap.xml` (root) lists all NO root pages with `<priority>1.0</priority>` and all EN pages with `0.8`. Current last-mod is `2026-05-12`.
+`sitemap.xml` (root) lists all NO root pages with `<priority>1.0</priority>` and all EN pages with `0.8`. Most entries carry `lastmod 2026-05-12`; the two VIP entries (`/service-vip.html`, `/en/service-vip.html`) were added with `lastmod 2026-05-17`.
 
 > **Missing from sitemap (2026-05-17):** `Hva-er-tantramassasje.html` and `en/What-is-a-Tantra-Massage.html`. **Needs verification / fix** if those should be indexed; they exist on disk and are linked from `blog.html`.
 
