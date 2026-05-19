@@ -679,6 +679,10 @@ header .search-box form button {
 	height: 1080px;
 }
 
+.hero-slider > .item:not(:first-child) {
+	display: none;
+}
+
 /****slider image setting****/
 /* item-0 background replaced by <img class="hero-img"> for LCP optimization */
 #home-1 .hero .item-1 {
