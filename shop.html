@@ -15,6 +15,349 @@
     <link rel="alternate" hreflang="en" href="https://massageart.no/en/shop.html" />
     <link rel="alternate" hreflang="no" href="https://massageart.no/shop.html" />
 
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "HealthAndBeautyBusiness",
+          "@id": "https://massageart.no/#organization",
+          "name": "MassageART Oslo",
+          "url": "https://massageart.no/",
+          "image": "https://massageart.no/images/home-1/logo.png",
+          "logo": "https://massageart.no/images/home-1/logo.png",
+          "telephone": "+4793934188",
+          "email": "massageartoslo@gmail.com",
+          "priceRange": "1700-5500 NOK",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bjørvika, Oslo",
+            "addressRegion": "Oslo",
+            "addressCountry": "NO"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+              ],
+              "opens": "10:00",
+              "closes": "22:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Sunday"
+              ],
+              "opens": "11:00",
+              "closes": "22:00"
+            }
+          ],
+          "areaServed": {
+            "@type": "City",
+            "name": "Oslo"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+4793934188",
+            "contactType": "customer service",
+            "areaServed": "NO",
+            "availableLanguage": [
+              "Norwegian",
+              "English"
+            ]
+          },
+          "sameAs": [
+            "https://www.facebook.com/share/17ZKPwMYmU/",
+            "https://www.instagram.com/autentisk_tantrisk_massasje"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://massageart.no/#website",
+          "url": "https://massageart.no/",
+          "name": "MassageART Oslo",
+          "publisher": {
+            "@id": "https://massageart.no/#organization"
+          },
+          "inLanguage": [
+            "no-NO",
+            "en"
+          ]
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://massageart.no/shop.html#webpage",
+          "url": "https://massageart.no/shop.html",
+          "name": "Massasjebehandlinger og priser hos MassageArt Oslo",
+          "description": "Se våre priser for terapeutiske og holistiske massasjeøkter i Oslo. Velg mellom standardøkter, velværepakker og par-massasje.  En investering i ditt velvære.",
+          "inLanguage": "no-NO",
+          "isPartOf": {
+            "@id": "https://massageart.no/#website"
+          },
+          "publisher": {
+            "@id": "https://massageart.no/#organization"
+          },
+          "mainEntity": {
+            "@id": "https://massageart.no/shop.html#offer-catalog"
+          }
+        },
+        {
+          "@type": "OfferCatalog",
+          "@id": "https://massageart.no/shop.html#offer-catalog",
+          "name": "Massasjebehandlinger og priser hos MassageArt Oslo",
+          "url": "https://massageart.no/shop.html",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "name": "MassageArt Oslo Priser - 1 time",
+              "url": "https://massageart.no/shop.html",
+              "priceCurrency": "NOK",
+              "price": 1700,
+              "availability": "https://schema.org/InStock",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "MassageArt Oslo Priser - 1 time",
+                "provider": {
+                  "@id": "https://massageart.no/#organization"
+                },
+                "areaServed": {
+                  "@type": "City",
+                  "name": "Oslo"
+                },
+                "duration": "PT1H"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "MassageArt Oslo Priser - 1,5 time",
+              "url": "https://massageart.no/shop.html",
+              "priceCurrency": "NOK",
+              "price": 2100,
+              "availability": "https://schema.org/InStock",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "MassageArt Oslo Priser - 1,5 time",
+                "provider": {
+                  "@id": "https://massageart.no/#organization"
+                },
+                "areaServed": {
+                  "@type": "City",
+                  "name": "Oslo"
+                },
+                "duration": "PT1H30M"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "MassageArt Oslo Priser - 2 timer",
+              "url": "https://massageart.no/shop.html",
+              "priceCurrency": "NOK",
+              "price": 2700,
+              "availability": "https://schema.org/InStock",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "MassageArt Oslo Priser - 2 timer",
+                "provider": {
+                  "@id": "https://massageart.no/#organization"
+                },
+                "areaServed": {
+                  "@type": "City",
+                  "name": "Oslo"
+                },
+                "duration": "PT2H"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Tantrisk Opplevelse - 1,5 time",
+              "url": "https://massageart.no/shop.html",
+              "priceCurrency": "NOK",
+              "price": 3200,
+              "availability": "https://schema.org/InStock",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Tantrisk Opplevelse - 1,5 time",
+                "provider": {
+                  "@id": "https://massageart.no/#organization"
+                },
+                "areaServed": {
+                  "@type": "City",
+                  "name": "Oslo"
+                },
+                "duration": "PT1H30M"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Tantrisk Opplevelse - 2 timer",
+              "url": "https://massageart.no/shop.html",
+              "priceCurrency": "NOK",
+              "price": 3700,
+              "availability": "https://schema.org/InStock",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Tantrisk Opplevelse - 2 timer",
+                "provider": {
+                  "@id": "https://massageart.no/#organization"
+                },
+                "areaServed": {
+                  "@type": "City",
+                  "name": "Oslo"
+                },
+                "duration": "PT2H"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Divine Escape Luxury VIP - 2,5 timer",
+              "url": "https://massageart.no/shop.html",
+              "priceCurrency": "NOK",
+              "price": 4600,
+              "availability": "https://schema.org/InStock",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Divine Escape Luxury VIP - 2,5 timer",
+                "provider": {
+                  "@id": "https://massageart.no/#organization"
+                },
+                "areaServed": {
+                  "@type": "City",
+                  "name": "Oslo"
+                },
+                "duration": "PT2H30M"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Divine Escape Luxury VIP - 3 timer",
+              "url": "https://massageart.no/shop.html",
+              "priceCurrency": "NOK",
+              "price": 5500,
+              "availability": "https://schema.org/InStock",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Divine Escape Luxury VIP - 3 timer",
+                "provider": {
+                  "@id": "https://massageart.no/#organization"
+                },
+                "areaServed": {
+                  "@type": "City",
+                  "name": "Oslo"
+                },
+                "duration": "PT3H"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Par-økt - 1,5 time",
+              "url": "https://massageart.no/shop.html",
+              "priceCurrency": "NOK",
+              "price": 4200,
+              "availability": "https://schema.org/InStock",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Par-økt - 1,5 time",
+                "provider": {
+                  "@id": "https://massageart.no/#organization"
+                },
+                "areaServed": {
+                  "@type": "City",
+                  "name": "Oslo"
+                },
+                "duration": "PT1H30M"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Par-økt - 2 timer",
+              "url": "https://massageart.no/shop.html",
+              "priceCurrency": "NOK",
+              "price": 5300,
+              "availability": "https://schema.org/InStock",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Par-økt - 2 timer",
+                "provider": {
+                  "@id": "https://massageart.no/#organization"
+                },
+                "areaServed": {
+                  "@type": "City",
+                  "name": "Oslo"
+                },
+                "duration": "PT2H"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "4-hånds massasje - 1 time",
+              "url": "https://massageart.no/shop.html",
+              "priceCurrency": "NOK",
+              "price": 3300,
+              "availability": "https://schema.org/InStock",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "4-hånds massasje - 1 time",
+                "provider": {
+                  "@id": "https://massageart.no/#organization"
+                },
+                "areaServed": {
+                  "@type": "City",
+                  "name": "Oslo"
+                },
+                "duration": "PT1H"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "4-hånds massasje - 1,5 time",
+              "url": "https://massageart.no/shop.html",
+              "priceCurrency": "NOK",
+              "price": 4100,
+              "availability": "https://schema.org/InStock",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "4-hånds massasje - 1,5 time",
+                "provider": {
+                  "@id": "https://massageart.no/#organization"
+                },
+                "areaServed": {
+                  "@type": "City",
+                  "name": "Oslo"
+                },
+                "duration": "PT1H30M"
+              }
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://massageart.no/shop.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Hjem",
+              "item": "https://massageart.no/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Priser",
+              "item": "https://massageart.no/shop.html"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
     <link href="images/favicon.png" rel="icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

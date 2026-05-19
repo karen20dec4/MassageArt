@@ -15,6 +15,191 @@
 	<link rel="alternate" hreflang="en" href="https://massageart.no/en/faq.html" />
 	<link rel="alternate" hreflang="no" href="https://massageart.no/faq.html" />
 
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "HealthAndBeautyBusiness",
+          "@id": "https://massageart.no/#organization",
+          "name": "MassageART Oslo",
+          "url": "https://massageart.no/",
+          "image": "https://massageart.no/images/home-1/logo.png",
+          "logo": "https://massageart.no/images/home-1/logo.png",
+          "telephone": "+4793934188",
+          "email": "massageartoslo@gmail.com",
+          "priceRange": "1700-5500 NOK",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bjørvika, Oslo",
+            "addressRegion": "Oslo",
+            "addressCountry": "NO"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+              ],
+              "opens": "10:00",
+              "closes": "22:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Sunday"
+              ],
+              "opens": "11:00",
+              "closes": "22:00"
+            }
+          ],
+          "areaServed": {
+            "@type": "City",
+            "name": "Oslo"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+4793934188",
+            "contactType": "customer service",
+            "areaServed": "NO",
+            "availableLanguage": [
+              "Norwegian",
+              "English"
+            ]
+          },
+          "sameAs": [
+            "https://www.facebook.com/share/17ZKPwMYmU/",
+            "https://www.instagram.com/autentisk_tantrisk_massasje"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://massageart.no/#website",
+          "url": "https://massageart.no/",
+          "name": "MassageART Oslo",
+          "publisher": {
+            "@id": "https://massageart.no/#organization"
+          },
+          "inLanguage": [
+            "no-NO",
+            "en"
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://massageart.no/en/faq.html#webpage",
+          "url": "https://massageart.no/en/faq.html",
+          "name": "Frequently Asked Questions at MassageART Oslo",
+          "description": "Find answers to common questions about our therapeutic and holistic tantra-inspired massage in Oslo. Learn about what to expect, our policies, and how to book.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://massageart.no/#website"
+          },
+          "publisher": {
+            "@id": "https://massageart.no/#organization"
+          },
+          "mainEntity": {
+            "@id": "https://massageart.no/en/faq.html#faq"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://massageart.no/en/faq.html#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is a tantra-inspired therapeutic massage?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It is a holistic and mindful massage practice using principles from Tantra to promote deep relaxation, body awareness, and energetic balance in a meditative and respectful environment."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is this a sexual service?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. The services are strictly professional and therapeutic. MassageART does not offer any sexual services, and inappropriate requests result in immediate termination of the session."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should I expect during my first session?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Each session begins with a calm conversation about intentions, comfort, and safety. The massage is a slow, meditative journey with mindful touch for deep relaxation and body reconnection."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "I feel nervous or shy. Is that normal?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. It is completely normal, especially for first-time clients. The studio is safe, welcoming, and non-judgmental, with comfort and peace of mind prioritized throughout."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Who is this type of massage for?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "This massage is for anyone seeking to reduce stress, deepen their mind-body connection, or explore a more mindful approach to wellness. Sessions are available for men, women, and couples."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can couples have a session together?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. MassageART offers couples sessions in a guided therapeutic setting that supports relaxation, presence, and deeper connection."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should I wear?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can come as you are. Draping, comfort levels, and boundaries are discussed during the initial consultation so you feel safe throughout the session."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my privacy respected?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. All sessions and conversations are held in strict confidence, and privacy and trust are fundamental to the therapeutic work."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://massageart.no/en/faq.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://massageart.no/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "FAQ",
+              "item": "https://massageart.no/en/faq.html"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
     <link href="../images/favicon.png" rel="icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

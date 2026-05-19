@@ -15,6 +15,146 @@
     <link rel="alternate" hreflang="en" href="https://massageart.no/en/service-couple.html" />
     <link rel="alternate" hreflang="no" href="https://massageart.no/service-couple.html" />
 
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "HealthAndBeautyBusiness",
+          "@id": "https://massageart.no/#organization",
+          "name": "MassageART Oslo",
+          "url": "https://massageart.no/",
+          "image": "https://massageart.no/images/home-1/logo.png",
+          "logo": "https://massageart.no/images/home-1/logo.png",
+          "telephone": "+4793934188",
+          "email": "massageartoslo@gmail.com",
+          "priceRange": "1700-5500 NOK",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bjørvika, Oslo",
+            "addressRegion": "Oslo",
+            "addressCountry": "NO"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+              ],
+              "opens": "10:00",
+              "closes": "22:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Sunday"
+              ],
+              "opens": "11:00",
+              "closes": "22:00"
+            }
+          ],
+          "areaServed": {
+            "@type": "City",
+            "name": "Oslo"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+4793934188",
+            "contactType": "customer service",
+            "areaServed": "NO",
+            "availableLanguage": [
+              "Norwegian",
+              "English"
+            ]
+          },
+          "sameAs": [
+            "https://www.facebook.com/share/17ZKPwMYmU/",
+            "https://www.instagram.com/autentisk_tantrisk_massasje"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://massageart.no/#website",
+          "url": "https://massageart.no/",
+          "name": "MassageART Oslo",
+          "publisher": {
+            "@id": "https://massageart.no/#organization"
+          },
+          "inLanguage": [
+            "no-NO",
+            "en"
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://massageart.no/en/service-couple.html#webpage",
+          "url": "https://massageart.no/en/service-couple.html",
+          "name": "Therapeutic Couples Massage in Oslo | Reconnect & Relax | MassageART",
+          "description": "Deepen your connection with our therapeutic couples massage in Oslo.   A unique, professional experience designed for partners to relax, reconnect, and share a journey of mindfulness together.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://massageart.no/#website"
+          },
+          "publisher": {
+            "@id": "https://massageart.no/#organization"
+          },
+          "mainEntity": {
+            "@id": "https://massageart.no/en/service-couple.html#service"
+          }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://massageart.no/en/service-couple.html#service",
+          "name": "Tantric Massage for Couples",
+          "description": "Deepen your connection with our therapeutic couples massage in Oslo.   A unique, professional experience designed for partners to relax, reconnect, and share a journey of mindfulness together.",
+          "serviceType": "Therapeutic tantra-inspired massage for couples",
+          "provider": {
+            "@id": "https://massageart.no/#organization"
+          },
+          "areaServed": {
+            "@type": "City",
+            "name": "Oslo"
+          },
+          "audience": {
+            "@type": "Audience",
+            "audienceType": "Couples"
+          },
+          "offers": {
+            "@type": "Offer",
+            "url": "https://massageart.no/en/shop.html",
+            "priceCurrency": "NOK",
+            "price": 4200,
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://massageart.no/en/service-couple.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://massageart.no/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Tantric Massage for Couples",
+              "item": "https://massageart.no/en/service-couple.html"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
     <link href="../images/favicon.png" rel="icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -11,6 +11,151 @@
     <link rel="canonical" href="https://massageart.no/en/blog.html" />
 	<link rel="alternate" hreflang="en" href="https://massageart.no/en/blog.html" />
 	<link rel="alternate" hreflang="no" href="https://massageart.no/blog.html" />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "HealthAndBeautyBusiness",
+          "@id": "https://massageart.no/#organization",
+          "name": "MassageART Oslo",
+          "url": "https://massageart.no/",
+          "image": "https://massageart.no/images/home-1/logo.png",
+          "logo": "https://massageart.no/images/home-1/logo.png",
+          "telephone": "+4793934188",
+          "email": "massageartoslo@gmail.com",
+          "priceRange": "1700-5500 NOK",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bjørvika, Oslo",
+            "addressRegion": "Oslo",
+            "addressCountry": "NO"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+              ],
+              "opens": "10:00",
+              "closes": "22:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Sunday"
+              ],
+              "opens": "11:00",
+              "closes": "22:00"
+            }
+          ],
+          "areaServed": {
+            "@type": "City",
+            "name": "Oslo"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+4793934188",
+            "contactType": "customer service",
+            "areaServed": "NO",
+            "availableLanguage": [
+              "Norwegian",
+              "English"
+            ]
+          },
+          "sameAs": [
+            "https://www.facebook.com/share/17ZKPwMYmU/",
+            "https://www.instagram.com/autentisk_tantrisk_massasje"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://massageart.no/#website",
+          "url": "https://massageart.no/",
+          "name": "MassageART Oslo",
+          "publisher": {
+            "@id": "https://massageart.no/#organization"
+          },
+          "inLanguage": [
+            "no-NO",
+            "en"
+          ]
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://massageart.no/en/blog.html#webpage",
+          "url": "https://massageart.no/en/blog.html",
+          "name": "Holistic Tantra Massage Blog | Wellness & Mindfulness Tips | MassageART Oslo",
+          "description": "Explore our blog for expert insights on holistic massage, wellness, and mindfulness from our Oslo-based therapists. Learn about the benefits of therapeutic touch for stress relief and relaxation.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://massageart.no/#website"
+          },
+          "publisher": {
+            "@id": "https://massageart.no/#organization"
+          },
+          "mainEntity": {
+            "@id": "https://massageart.no/en/blog.html#blog"
+          }
+        },
+        {
+          "@type": "Blog",
+          "@id": "https://massageart.no/en/blog.html#blog",
+          "name": "Holistic Tantra Massage Blog | Wellness & Mindfulness Tips | MassageART Oslo",
+          "url": "https://massageart.no/en/blog.html",
+          "inLanguage": "en",
+          "publisher": {
+            "@id": "https://massageart.no/#organization"
+          },
+          "blogPost": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "What is a Tantra Massage",
+              "url": "https://massageart.no/en/What-is-a-Tantra-Massage.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Harmony and Hormonal Balance Through Tantra Massage",
+              "url": "https://massageart.no/en/harmony-and-hormonal-balance-through-tantra-massage.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Therapeutic Tantra Massage in Oslo",
+              "url": "https://massageart.no/en/tantric-massage-in-oslo.html"
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://massageart.no/en/blog.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://massageart.no/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": "https://massageart.no/en/blog.html"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
     <link href="../images/favicon.png" rel="icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

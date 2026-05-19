@@ -60,41 +60,112 @@
     <noscript><link rel="stylesheet" href="css/style.css"></noscript>
     <link rel="preload" href="css/responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="css/responsive.css"></noscript>
-
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "HealthAndBeautyBusiness",
-      "name": "MassageART Oslo",
-      "description": "Profesjonell terapeutisk og holistisk massasje i Oslo, inspirert av tantriske prinsipper. Våre tjenester er strengt ikke-seksuelle, med fokus på avspenning, kroppsbevissthet og indre balanse.",
-      "url": "https://massageart.no/",
-      "image":  "https://massageart.no/images/home-1/logo.png",
-      "telephone": "+4793934188",
-      "email": "massageartoslo@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Barcode",
-        "addressRegion": "Oslo",
-        "addressCountry": "NO"
-      },
-      "openingHoursSpecification": [
+      "@graph": [
         {
-          "@type":  "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-          "opens": "10:00",
-          "closes":  "22:00"
+          "@type": "HealthAndBeautyBusiness",
+          "@id": "https://massageart.no/#organization",
+          "name": "MassageART Oslo",
+          "url": "https://massageart.no/",
+          "image": "https://massageart.no/images/home-1/logo.png",
+          "logo": "https://massageart.no/images/home-1/logo.png",
+          "telephone": "+4793934188",
+          "email": "massageartoslo@gmail.com",
+          "priceRange": "1700-5500 NOK",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bjørvika, Oslo",
+            "addressRegion": "Oslo",
+            "addressCountry": "NO"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+              ],
+              "opens": "10:00",
+              "closes": "22:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Sunday"
+              ],
+              "opens": "11:00",
+              "closes": "22:00"
+            }
+          ],
+          "areaServed": {
+            "@type": "City",
+            "name": "Oslo"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+4793934188",
+            "contactType": "customer service",
+            "areaServed": "NO",
+            "availableLanguage": [
+              "Norwegian",
+              "English"
+            ]
+          },
+          "sameAs": [
+            "https://www.facebook.com/share/17ZKPwMYmU/",
+            "https://www.instagram.com/autentisk_tantrisk_massasje"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://massageart.no/#website",
+          "url": "https://massageart.no/",
+          "name": "MassageART Oslo",
+          "publisher": {
+            "@id": "https://massageart.no/#organization"
+          },
+          "inLanguage": [
+            "no-NO",
+            "en"
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://massageart.no/#webpage",
+          "url": "https://massageart.no/",
+          "name": "Tantrisk Massasje i Oslo | Tantra for Menn, Kvinner & Par - MassageART",
+          "description": "Profesjonell terapeutisk og holistisk tantra-inspirert massasje i Oslo.Fokus på dyp avspenning, indre balanse og kroppsbevissthet i et trygt og respektfullt miljø.",
+          "inLanguage": "no-NO",
+          "isPartOf": {
+            "@id": "https://massageart.no/#website"
+          },
+          "publisher": {
+            "@id": "https://massageart.no/#organization"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://massageart.no/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Hjem",
+              "item": "https://massageart.no/"
+            }
+          ]
         }
-      ],
-      "areaServed": "Oslo",
-      "sameAs": [
-        "https://www.facebook.com/share/17ZKPwMYmU/",
-        "https://www.instagram.com/autentisk_tantrisk_massasje"
       ]
     }
     </script>
-    
-    <!-- CSS for Language Switcher + Social icons in footer-about -->
+<!-- CSS for Language Switcher + Social icons in footer-about -->
     <style>
         .language-switcher{position: fixed;bottom:20px;right:20px;z-index: 1000;background-color: rgba(0,0,0,0.7);border-radius:25px;display:flex;overflow:hidden;border:1px solid rgba(255,255,255,0.1)}
         .language-switcher a{display:flex;align-items:center;text-decoration:none;color:white;padding:8px 12px;font-family:'Open Sans',sans-serif;font-size: 14px;transition:background-color .3s}

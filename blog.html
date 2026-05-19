@@ -15,6 +15,151 @@
 	<link rel="alternate" hreflang="en" href="https://massageart.no/en/blog.html" />
 	<link rel="alternate" hreflang="no" href="https://massageart.no/blog.html" />
 
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "HealthAndBeautyBusiness",
+          "@id": "https://massageart.no/#organization",
+          "name": "MassageART Oslo",
+          "url": "https://massageart.no/",
+          "image": "https://massageart.no/images/home-1/logo.png",
+          "logo": "https://massageart.no/images/home-1/logo.png",
+          "telephone": "+4793934188",
+          "email": "massageartoslo@gmail.com",
+          "priceRange": "1700-5500 NOK",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bjørvika, Oslo",
+            "addressRegion": "Oslo",
+            "addressCountry": "NO"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+              ],
+              "opens": "10:00",
+              "closes": "22:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Sunday"
+              ],
+              "opens": "11:00",
+              "closes": "22:00"
+            }
+          ],
+          "areaServed": {
+            "@type": "City",
+            "name": "Oslo"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+4793934188",
+            "contactType": "customer service",
+            "areaServed": "NO",
+            "availableLanguage": [
+              "Norwegian",
+              "English"
+            ]
+          },
+          "sameAs": [
+            "https://www.facebook.com/share/17ZKPwMYmU/",
+            "https://www.instagram.com/autentisk_tantrisk_massasje"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://massageart.no/#website",
+          "url": "https://massageart.no/",
+          "name": "MassageART Oslo",
+          "publisher": {
+            "@id": "https://massageart.no/#organization"
+          },
+          "inLanguage": [
+            "no-NO",
+            "en"
+          ]
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://massageart.no/blog.html#webpage",
+          "url": "https://massageart.no/blog.html",
+          "name": "Blogg om Holistisk Massasje | Velvære & Nærvær Tips | MassageART Oslo",
+          "description": "Utforsk vår blogg for ekspertinnsikt om holistisk massasje, velvære og nærvær fra våre terapeuter i Oslo. Lær om fordelene med terapeutisk berøring for stresslindring og avspenning.",
+          "inLanguage": "no-NO",
+          "isPartOf": {
+            "@id": "https://massageart.no/#website"
+          },
+          "publisher": {
+            "@id": "https://massageart.no/#organization"
+          },
+          "mainEntity": {
+            "@id": "https://massageart.no/blog.html#blog"
+          }
+        },
+        {
+          "@type": "Blog",
+          "@id": "https://massageart.no/blog.html#blog",
+          "name": "Blogg om Holistisk Massasje | Velvære & Nærvær Tips | MassageART Oslo",
+          "url": "https://massageart.no/blog.html",
+          "inLanguage": "no-NO",
+          "publisher": {
+            "@id": "https://massageart.no/#organization"
+          },
+          "blogPost": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Hva er tantramassasje",
+              "url": "https://massageart.no/Hva-er-tantramassasje.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Harmoni og hormonbalanse gjennom tantrisk massasje",
+              "url": "https://massageart.no/harmoni-og-hormonbalanse-gjennom-tantrisk-massasje.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Terapeutisk tantrisk massasje i Oslo",
+              "url": "https://massageart.no/tantric-massage-in-oslo.html"
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://massageart.no/blog.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Hjem",
+              "item": "https://massageart.no/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blogg",
+              "item": "https://massageart.no/blog.html"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
     <link href="images/favicon.png" rel="icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
