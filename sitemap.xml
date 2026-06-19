@@ -72,6 +72,11 @@
 	<lastmod>2026-05-12T00:00:00+01:00</lastmod>
 	<priority>1.0</priority>
 </url>
+<url>
+	<loc>https://massageart.no/tantrisk-massasje-og-seksuell-balanse.html</loc>
+	<lastmod>2026-06-19T00:00:00+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
 
 <!-- English Pages - /en/ directory -->
 <url>
@@ -139,6 +144,11 @@
 <url>
 	<loc>https://massageart.no/en/harmony-and-hormonal-balance-through-tantra-massage.html</loc>
 	<lastmod>2026-05-12T00:00:00+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://massageart.no/en/tantric-massage-and-sexual-balance.html</loc>
+	<lastmod>2026-06-19T00:00:00+01:00</lastmod>
 	<priority>0.8</priority>
 </url>
 
