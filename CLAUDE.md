@@ -33,6 +33,7 @@ Live site: https://massageart.no — Repo: https://github.com/karen20dec4/Massag
 | `service.html` (men)                                          | `en/service.html`                                                     |
 | `service-woman.html`                                          | `en/service-woman.html`                                               |
 | `service-couple.html`                                         | `en/service-couple.html`                                              |
+| `service-vip.html` (Tantrisk Luxury VIP)                      | `en/service-vip.html`                                                 |
 | `shop.html` (prices)                                          | `en/shop.html`                                                        |
 | `blog.html`                                                   | `en/blog.html`                                                        |
 | `faq.html`                                                    | `en/faq.html`                                                         |
@@ -52,6 +53,11 @@ These are archived backups or auto-generated and must not be modified or deploye
 - `en/about_orig.html`, `en/index_.html`
 - `css/style_orig.css`
 
+Debug/test scaffolding that lives in the repo but must **never be deployed** to the live server:
+
+- `_info.php` — bare `phpinfo()` dump; exposing it publicly leaks server config (security risk).
+- `test-email.php`, `test/mail_test.php` — throwaway `mail()` test scripts with a hardcoded personal recipient.
+
 ## Conventions
 
 - **Mobile breakpoint:** `max-width: 767px` (Bootstrap 3 xs). Existing mobile-specific overrides may live inline in a page's `<style>` block (e.g. `blog.html` reorders the sidebar via flexbox `order: -1` on mobile).
@@ -65,6 +71,7 @@ These are archived backups or auto-generated and must not be modified or deploye
   | `service.html`                    | Bestill din massasje i dag               | Reserve your massage today            |
   | `service-woman.html`              | Bestill din private tantriske massasje   | Book your private tantric massage     |
   | `service-couple.html`             | Opplev ekte avslapning i dag             | Discover true relaxation today        |
+  | `service-vip.html`                | Vi håper du kommer på besøk snart!       | We Would Love to Have You Visit Soon! |
   | `faq.html`                        | Send meg en melding nå                   | Send me a message now                 |
   | `Hva-er-tantramassasje.html` / `en/What-is-a-Tantra-Massage.html` | Start din tantriske opplevelse nå | Begin your tantric experience now |
 

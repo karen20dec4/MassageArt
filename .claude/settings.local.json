@@ -4,7 +4,8 @@
       "Bash(python *)",
       "Bash(mkdir -p \"h:/MassageART/tmp\")",
       "Bash(mv \"h:/MassageART/_SITE/.tmp_vip\" \"h:/MassageART/tmp/vip_extracted\")",
-      "Read(//h/MassageART/tmp/**)"
+      "Read(//h/MassageART/tmp/**)",
+      "Bash(grep -E \"\\\\.\\(html|php|js|css\\)$\")"
     ],
     "additionalDirectories": [
       "h:\\MassageART\\copilot-logs-screenshoots",

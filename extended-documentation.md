@@ -254,12 +254,117 @@ Do all of the following, in both languages:
 4. Replace the article body, hero image, and any inline `<style>` overrides as needed.
 5. Update the CTA button text (must be unique per page — see §7 table).
 6. Verify the **header nav**, **footer**, **language switcher**, **pre-loader**, **floating call button**, and JS includes match the rest of the site (copy from a recent service page if in doubt).
-7. **Add to `blog.html`** AND **`en/blog.html`**:
+7. **Add to `blog.html`** AND **`en/blog.html`** (three edits per file — see the copy/paste templates in §6.1):
    - Add a new `<article id="...">` block inside `<section class="news col col-md-9">` with the big image, post-meta, headline, lead text, and a "Les mer" / "Read more" link to the standalone file.
-   - Add a matching `<li><a href="#new-anchor-id">…</a></li>` to the right-hand sidebar list.
+   - Add a matching `<li><a href="#new-anchor-id">…</a></li>` to the right-hand sidebar list (`<aside class="sidebar">`).
+   - **Add a `ListItem` to the Schema.org JSON-LD** — inside the `<script type="application/ld+json">` block, in the `@type: "Blog"` node's `blogPost` array. Bump `position` to the next number and set `name` + the standalone page's full `url`. **This step is easy to forget and is missing from older articles' mental model — do not skip it.**
 8. **Add new images** to `images/blog/` — prefer `.webp` for the in-article hero/cards. Optimize for mobile.
 9. **Add the new URLs to `sitemap.xml`** (root + `/en/`). Set a sensible `<priority>` (existing NO blog entries use `1.0`, EN entries `0.8`).
 10. **Local smoke test**: open both new pages, click the language switcher, verify nav/footer, click the new entry on blog index in both languages.
+
+### 6.1 Copy/paste templates (verified against `blog.html` / `en/blog.html`, 2026-06-19)
+
+There are **two kinds of `<article>` cards** in the blog index. A standalone article uses the *first* form; an inline-only "article" (no dedicated page) uses the *second*.
+
+**Standalone card — NO (`blog.html`).** Note the image is wrapped in an `<a>`, and there is a `btn common-btn` "Les mer" button. Root pages use bare relative paths (`images/...`, `min-nye-artikkel.html`):
+
+```html
+<article id="ANCHOR-ID" class="blog-post">
+    <div class="big-img"><a href="min-nye-artikkel.html"><img src="images/blog/min-nye-artikkel.webp" alt="Beskrivende alt-tekst på norsk" class="img img-responsive"></a></div>
+    <div class="post-meta">
+        <div class="pull-left"><span class="playfair">Kort kategori</span></div>
+        <div class="pull-right"><span><i class="fa fa-calendar"></i> 1 Feb 2026</span></div>
+    </div>
+    <div class="clearfix"></div>
+    <h2>Artikkelens overskrift?</h2>
+    <p>Ingress / lead-avsnitt …</p>
+    <a href="min-nye-artikkel.html" class="btn common-btn"
+       style="position:static; left:auto; transform:none; display:block; margin-top:10px;">
+       Les mer
+    </a><br><br>
+</article>
+```
+
+**Standalone card — EN (`en/blog.html`).** Two differences from NO: assets are prefixed `../`, and the existing cards link the image/button via the **absolute** URL (`https://massageart.no/en/…`), not a relative path. The button label is "Read more":
+
+```html
+<article id="ANCHOR-ID" class="blog-post">
+    <div class="big-img"><a href="https://massageart.no/en/my-new-article.html"><img src="../images/blog/min-nye-artikkel.webp" alt="Descriptive English alt text" class="img img-responsive"></a></div>
+    <div class="post-meta">
+        <div class="pull-left"><span class="playfair">Short category</span></div>
+        <div class="pull-right"><span><i class="fa fa-calendar"></i> 1 Feb 2026</span></div>
+    </div>
+    <div class="clearfix"></div>
+    <h2>Article headline?</h2>
+    <p>Lead paragraph …</p>
+    <a href="https://massageart.no/en/my-new-article.html" class="btn common-btn"
+       style="position:static; left:auto; transform:none; display:block; margin-top:10px;">
+       Read more
+    </a><br><br>
+</article>
+```
+
+**Inline-only card** (no own page → no image link, no "read more" button, and **not** added to the `blogPost` JSON-LD):
+
+```html
+<article id="ANCHOR-ID" class="blog-post">
+    <div class="big-img"><img src="images/blog/bilde.jpg" alt="…" class="img img-responsive"></div>
+    <div class="post-meta"><div class="pull-left"><span class="playfair">Kategori</span></div><div class="pull-right"><span><i class="fa fa-calendar"></i> 1. mai 2025</span></div></div>
+    <div class="clearfix"></div>
+    <h2>Overskrift</h2>
+    <p>…</p>
+</article>
+```
+
+**Sidebar entry** (both languages, inside `<aside class="sidebar"> … <ul>`):
+
+```html
+<li><a href="#ANCHOR-ID"><i class="fa fa-sign-out"></i>Kort tittel</a></li>
+```
+
+**JSON-LD `blogPost` `ListItem`** (standalone only — add to the `@type: "Blog"` node, NO uses root URL, EN uses `/en/`):
+
+```json
+{ "@type": "ListItem", "position": 4, "name": "Artikkeltittel", "url": "https://massageart.no/min-nye-artikkel.html" }
+```
+
+### 6.2 Standalone article page skeleton (verified against `harmoni-…massasje.html`)
+
+A dedicated article page is **not** built like the blog index — it uses a simple centered text column, not the `news`/`sidebar` grid:
+
+- `<html lang="no">` (root) / `lang="en"` (`en/`).
+- `<head>`: unique `<title>`, `<meta description>`, `<meta keywords>`, `<meta author>`, self-referencing `<link rel="canonical">`, and the `hreflang="en"` + `hreflang="no"` pair cross-linking the NO/EN siblings.
+- `<body id="page-content">` (note: **not** `id="blog"`).
+- Content shell:
+  ```html
+  <section class="page-content" style="padding: 70px 0;">
+    <div class="container"><div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="section-title text-center">
+          <h1>Article title</h1><br>
+          <span class="playfair">Subtitle / tagline</span>
+        </div>
+        <p>…</p>
+        <img src="images/blog/article-image.jpg" alt="…" class="img-responsive" style="margin: 30px 0; border-radius: 5px;">
+        <h2 class="playfair" style="margin-top: 40px;">Section heading</h2>
+        <p>…</p>
+        <!-- optional <blockquote> with the Playfair italic pull-quote style -->
+        <a href="contact.html" class="btn btn-default" style="margin-top: 25px; padding: 10px 20px; font-size: 16px;">CTA-tekst</a>
+      </div>
+    </div></div>
+  </section>
+  ```
+- Then the standard `<footer>`, `<div class="language-switcher">`, and the deferred JS includes. The existing article pages load: `jquery-1.11.3.min.js`, `bootstrap.min.js`, `owl.carousel.min.js`, `jquery.appear.js`, `jquery.animateNumber.min.js`, **`index-script.js`** (there is no dedicated `blog-script.js`). EN pages prefix every `src` with `../`.
+- CTA label must be unique per page — the two existing article CTAs are in the §7 table.
+
+### 6.3 Blog-system gotchas / known inconsistencies (do not copy blindly)
+
+1. **Path bug in `blog.html`.** The inline `#Male-Energy-Work` (Lingam) card references `../images/blog/lingam_massage.jpg` with a `../` prefix — wrong for a root page (it escapes the site root). Correct form on a root page is `images/blog/lingam_massage.jpg`. Use bare `images/...` for new NO cards; do not replicate the `../`.
+2. **Sidebar breakpoint is `769px`, not `767px`.** The mobile sidebar-reorder media query in `blog.html` / `en/blog.html` is `@media (max-width: 769px)` (the rest of the site uses the Bootstrap-3 `767px` xs boundary). Harmless drift; match the existing 769 if you edit that block.
+3. **NO vs EN link style differs.** NO cards link with relative paths (`min-nye-artikkel.html`); EN cards link with absolute URLs (`https://massageart.no/en/…`). Both work — follow the per-language convention already in the file.
+4. **Images are a `.webp` / `.jpg` mix.** Prefer `.webp` for new article images, but existing cards use both — do not assume every blog image is `.webp` when wiring `src`/`alt`.
+5. **Ordering = newest first.** Standalone articles sit at the top of `<section class="news">` (they are the most recent by date), followed by the older inline-only ones, descending by `fa-calendar` date. Insert a new card in date order and give it the matching JSON-LD `position`.
+6. **Date format is not standardized** (`1 Feb 2026`, `11 Dec 2025`, `1. nov 2025`, `1. mai 2025` all coexist). Match the style of neighboring cards rather than introducing a new one.
 
 ---
 
@@ -497,7 +602,7 @@ Before pushing any change, walk through this list:
 
 ### 12.1 Add a new blog article
 
-See the detailed §6 checklist. Summary: create matching NO + EN `.html` files at language root, update SEO/hreflang/canonical, add an `<article>` block + sidebar `<li>` to both `blog.html` and `en/blog.html`, add images to `images/blog/`, update `sitemap.xml`.
+See the detailed §6 checklist and the §6.1 copy/paste templates. Summary: create matching NO + EN `.html` files at language root (skeleton in §6.2), update SEO/hreflang/canonical, then per language make **three** edits to `blog.html` / `en/blog.html` — `<article>` card + sidebar `<li>` + a `blogPost` JSON-LD `ListItem` — add images to `images/blog/`, update `sitemap.xml`. Watch the §6.3 gotchas (root vs `../` image paths, `.webp`/`.jpg` mix, newest-first ordering).
 
 ### 12.2 Add a new page (non-article)
 
